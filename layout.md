@@ -2,7 +2,7 @@ abstract.tex
 Introduction.tex
 Conceptual building blocks for modeling.tex
 figures/Hierarchy_with_Notation/Hierarchy_with_Notation.png
-subsectionAuxiliary_.tex
+Auxiliary measurements.tex
 sectionPhysics_quest.tex
 figures/NeymanPearsonLemma/NeymanPearsonLemma.png
 How_does_this_genera.tex
