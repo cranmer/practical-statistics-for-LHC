@@ -1,6 +1,6 @@
 abstract.tex
 Introduction.tex
-sectionConceptual_bu.tex
+Conceptual building blocks for modeling.tex
 figures/Hierarchy_with_Notation/Hierarchy_with_Notation.png
 subsectionAuxiliary_.tex
 sectionPhysics_quest.tex
