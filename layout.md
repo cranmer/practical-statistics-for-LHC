@@ -1,5 +1,5 @@
 abstract.tex
-sectionIntroduction_.tex
+Introduction.tex
 sectionConceptual_bu.tex
 figures/Hierarchy_with_Notation/Hierarchy_with_Notation.png
 subsectionAuxiliary_.tex
