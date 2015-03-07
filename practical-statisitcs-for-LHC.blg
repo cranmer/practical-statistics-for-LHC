@@ -1,0 +1,118 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: practical-statisitcs-for-LHC.aux
+The style file: unsrt.bst
+I couldn't open database file practical-statistics-for-LHC.bib
+---line 187 of file practical-statisitcs-for-LHC.aux
+ : \bibdata{practical-statistics-for-LHC
+ :                                      }
+I'm skipping whatever remains of this command
+I found no database files---while reading file practical-statisitcs-for-LHC.aux
+Warning--I didn't find a database entry for "asimov"
+Warning--I didn't find a database entry for "histfactory"
+Warning--I didn't find a database entry for "Barlow1990496"
+Warning--I didn't find a database entry for "Cousins:2008zz"
+Warning--I didn't find a database entry for "James"
+Warning--I didn't find a database entry for "James:1975dr"
+Warning--I didn't find a database entry for "Neyman"
+Warning--I didn't find a database entry for "Feldman"
+Warning--I didn't find a database entry for "Cranmer:2005hi"
+Warning--I didn't find a database entry for "Hybrid"
+Warning--I didn't find a database entry for "Bodhi"
+Warning--I didn't find a database entry for "Feldman:1997qc"
+Warning--I didn't find a database entry for "Sredniki"
+Warning--I didn't find a database entry for "MonteCarlo"
+Warning--I didn't find a database entry for "Cranmer:2000du"
+Warning--I didn't find a database entry for "Read:1999kh"
+Warning--I didn't find a database entry for "CousinsLogNormal"
+Warning--I didn't find a database entry for "Eadie:qy"
+Warning--I didn't find a database entry for "Barlow:1993dm"
+Warning--I didn't find a database entry for "ATLAS-CONF-2011-161"
+Warning--I didn't find a database entry for "ATLAS:2012ad"
+Warning--I didn't find a database entry for "ATLAS:2011ad"
+Warning--I didn't find a database entry for "Aad:2009wy"
+Warning--I didn't find a database entry for "tmva"
+Warning--I didn't find a database entry for "Punzi:2004wh"
+Warning--I didn't find a database entry for "Cranmer"
+Warning--I didn't find a database entry for "hybridResampling"
+Warning--I didn't find a database entry for "Read2"
+Warning--I didn't find a database entry for "Read1"
+Warning--I didn't find a database entry for "CLsWikipedia"
+Warning--I didn't find a database entry for "2011arXiv1105.3166C"
+Warning--I didn't find a database entry for "Wilks"
+Warning--I didn't find a database entry for "Wald"
+Warning--I didn't find a database entry for "Woodroofe"
+Warning--I didn't find a database entry for "LEE"
+Warning--I didn't find a database entry for "ATL-PHYS-PUB-2011-011"
+Warning--I didn't find a database entry for "Mandelkern2002"
+Warning--I didn't find a database entry for "2011arXiv1109.2023C"
+Warning--I didn't find a database entry for "Birnbaum:1962"
+Warning--I didn't find a database entry for "DAgostiniInference"
+Warning--I didn't find a database entry for "Cousins:1994yw"
+Warning--I didn't find a database entry for "Jaynes:2003fk"
+Warning--I didn't find a database entry for "JeffreysPrior"
+Warning--I didn't find a database entry for "Demortier:2010sn"
+Warning--I didn't find a database entry for "Conrad:2005zm"
+Warning--I didn't find a database entry for "Tegenfeldt:2004dk"
+Warning--I didn't find a database entry for "Conrad:2002ur"
+Warning--I didn't find a database entry for "Conrad:2002kn"
+Warning--I didn't find a database entry for "Rolke:2004mj"
+Warning--I didn't find a database entry for "PhysRevD.67.118101"
+Warning--I didn't find a database entry for "Demortier:2007zz"
+Warning--I didn't find a database entry for "Caldwell:2009ve"
+Warning--I didn't find a database entry for "skilling:395"
+Warning--I didn't find a database entry for "Feroz:2008xx"
+Warning--I didn't find a database entry for "Berger:1992ys"
+Warning--I didn't find a database entry for "Berger:1992vn"
+Warning--I didn't find a database entry for "Berger:1989kx"
+Warning--I didn't find a database entry for "Bernardo:1979uq"
+Warning--I didn't find a database entry for "Casadei:2011hx"
+Warning--I didn't find a database entry for "Prosper:1306523"
+Warning--I didn't find a database entry for "DAgostini1995487"
+Warning--I didn't find a database entry for "Adye:2011gm"
+Warning--I didn't find a database entry for "Malaescu:2011yg"
+Warning--I didn't find a database entry for "Blobel:2002pu"
+Warning--I didn't find a database entry for "Hocker:1995kb"
+Warning--I didn't find a database entry for "Tikhonov"
+You've used 0 entries,
+            1791 wiz_defined-function locations,
+            573 strings with 5125 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There were 2 error messages)

@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: practical-statistics-for-LHC.aux
+The style file: unsrt.bst
+Database file #1: practical-statistics-for-LHC.bib
+Warning--I didn't find a database entry for "Sredniki"
+Warning--I didn't find a database entry for "MonteCarlo"
+Warning--I didn't find a database entry for "hybridResampling"
+Warning--there's a month but no year in histfactory
+Warning--empty institution in Feldman
+Warning--empty journal in Cranmer:2005hi
+Warning--empty year in Eadie:qy
+Warning--empty journal in ATLAS-CONF-2011-161
+Warning--there's a number but no volume in ATLAS-CONF-2011-161
+Warning--empty journal in Aad:2009wy
+Warning--empty journal in Read2
+Warning--empty author in ATL-PHYS-PUB-2011-011
+Warning--empty journal in Conrad:2005zm
+Warning--empty journal in Conrad:2002ur
+Warning--empty journal in Demortier:2007zz
+Warning--empty title in Berger:1992vn
+Warning--empty title in Berger:1989kx
+Warning--empty title in Bernardo:1979uq
+Warning--there's a number but no series in Prosper:1306523
+Warning--empty journal in Adye:2011gm
+Warning--empty journal in Choudalakis2012
+You've used 65 entries,
+            1791 wiz_defined-function locations,
+            875 strings with 13437 characters,
+and the built_in function-call counts, 12582 in all, are:
+= -- 1122
+> -- 417
+< -- 7
++ -- 173
+- -- 108
+* -- 738
+:= -- 2026
+add.period$ -- 196
+call.type$ -- 65
+change.case$ -- 59
+chr.to.int$ -- 0
+cite$ -- 83
+duplicate$ -- 584
+empty$ -- 1331
+format.name$ -- 108
+if$ -- 2837
+int.to.chr$ -- 0
+int.to.str$ -- 65
+missing$ -- 59
+newline$ -- 329
+num.names$ -- 62
+pop$ -- 153
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 259
+stack$ -- 0
+substring$ -- 815
+swap$ -- 91
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 18
+while$ -- 109
+width$ -- 67
+write$ -- 693
+(There were 21 warnings)
