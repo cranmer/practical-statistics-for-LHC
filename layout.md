@@ -1,5 +1,4 @@
 abstract.tex
-mboxboldmathtextstyl.tex
 sectionIntroduction_.tex
 sectionConceptual_bu.tex
 figures/Hierarchy_with_Notation/Hierarchy_with_Notation.png
