@@ -3,7 +3,7 @@ Introduction.tex
 Conceptual building blocks for modeling.tex
 figures/Hierarchy_with_Notation/Hierarchy_with_Notation.png
 Auxiliary measurements.tex
-sectionPhysics_quest.tex
+Physics questions formulated in statistical language.tex
 figures/NeymanPearsonLemma/NeymanPearsonLemma.png
 How_does_this_genera.tex
 figures/CLs/default_figure.png
