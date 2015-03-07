@@ -7,15 +7,17 @@
 This section specifies my notations and conventions, which I have chosen with some care.%
 
 
-
+\begin{equation}
 \int  f(x) \;dx\;= 1\;.
-
+\end{equation}
 
 Figure~\ref{fig:hierarchy} establishes a hierarchy that is fairly general for the context of high-energy physics.  Imagine the search for the Higgs boson, in which the search is composed of several ``channels'' indexed by $c$.  Here a channel is defined by its associated event selection criteria, not an underlying physical process.  In addition to the number of selected events, $n_c$, each channel may make use of some other measured quantity, $x_c$, such as the invariant mass of the candidate Higgs boson. The quantities will be called ``observables'' and will be written in roman letters e.g. $x_c$. The notation is chosen to make manifest that the observable $x$ is  frequentist in nature.  Replication of the experiment many times will result in different values of $x$ and this ensemble gives rise to a \emph{probability density function} (pdf) of $x$, written $f(x)$, which has the important property that it is normalized to unity
 
 
 
+\begin{equation}
 f(x | \alpha) \;,
+\end{equation}
 
 
 In the case of discrete quantities, such as the number of events satisfying some event selection, the integral is replaced by a sum.  Often one considers a parametric family of pdfs
@@ -33,8 +35,9 @@ While $f(x)$ describes the probability density for the observable $x$ for a sing
 where I use a bold $\F$ to distinguish it from the individual event probability density $f(x)$.  In practice, the expectation is often parametrized as well and some parameters simultaneously modify the expected rate and shape, thus we can write $\nu\rightarrow\nu(\alpha)$.  In \texttt{RooFit} both $f$ and $\F$ are implemented with a \texttt{RooAbsPdf}; where \texttt{RooAbsPdf::getVal(x)} always provides the value of $f(x)$ and depending on \texttt{RooAbsPdf::extendMode()} the value of $\nu$ is accessed via \texttt{RooAbsPdf::expectedEvents()}.
 
 
-
+\begin{equation}
 \cancelto{\mathrm{Not ~True!}}{\int L(\alpha) \;d\alpha = 1}\; .
+\end{equation}
 
 
 The \emph{likelihood function} $L(\alpha)$ is numerically equivalent to $f(x|\alpha)$ with $x$ fixed -- or $\F(\data|\alpha)$ with \data\ fixed.  The likelihood function should not be interpreted as a probability density for $\alpha$.  In particular, the likelihood function does not have the property that it normalizes to unity
