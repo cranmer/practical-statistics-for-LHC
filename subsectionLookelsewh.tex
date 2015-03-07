@@ -1,0 +1,19 @@
+\subsection{Look-elsewhere effect, trials factor, Bonferoni}
+
+
+Future versions of this document will discuss the so-called look-elsewhere effect in more detail.  Here we point to the primary development recently: \cite{LEE,ATL-PHYS-PUB-2011-011}.
+
+
+\subsection{One-sided intervals, CLs, power-constraints, and Negatively Biased Relevant Subsets}
+
+
+Particle physicists regularly set upper-limits on cross sections and other parameters that are bounded to be non-negative.  Standard frequentist confidence intervals should nominally cover at the stated value.  The implication that a 95\% confidence level upper-limit covers the true value 95\% of the time is that it doesn't cover the true value 5\% of the time.  This is true no matter how small the cross section is.  That means that if there is no signal present, 5\% of the time we would be excluding any positive value of the cross-section.  Experimentalists do not like this since we would not consider ourselves sensitive to arbitrarily small signals.  
+
+
+Two main approaches have been proposed to protect from excluding signals to which we do not consider ourselves sensitive.  The first is the CLs procedure introduced by Read and described above~\cite{Read2,Read1,CLsWikipedia}.  The CLs procedure produce intervals that over-cover -- meaning that the intervals cover the true value more than the desired level.  The  coverage for small values of the cross-section approaches 100\%, while for large values of the cross section, where the experiment does have sensitivity, the coverage converges to the nominal level  (see Fig.~\ref{fig:CLscoverage}).  Unfortunately, the coverage for intermediate values is not immediately accessible without more detailed studies.  Interestingly, the modified frequentist CLs procedure reproduces the one-sided upper limit from a Bayesian procedure with a uniform prior on the cross section for simple models like number counting analyses.  Even in very complicated models we see very good numerical agreement between CLs and the Bayesian approach, even though the interpretation of the numbers is  different.
+
+
+An alternate approach called power-constrained limits (PCL) is to leave the standard frequentist procedure unchanged while adding an additional requirement for a parameter point to be considered `excluded'.  The additional requirement is directly a measure of the sensitivity of to that parameter point based on the notion of power (or Type II error).  This approach makes the coverage of the procedure manifest~\cite{2011arXiv1105.3166C}.
+
+
+Surprisingly, one-sided upper limits on a bounded parameter are a subtle topic that has led to debates among the experts of statistics in the collaborations and a string of interesting articles from statisticians.  The discussion is beyond the scope of the current version of these notes, but the interested reader is invited and encouraged to read~\cite{Mandelkern2002} and the responses from notable statisticians on the topic.  More recently Cousins tried to formalize the sensitivity problem in terms of a concept called Negatively Biased Relevant Subsets (NBRS)~\cite{2011arXiv1109.2023C}.  While the power-constrained limits do not formally emit NBRS, it is an interesting insight.  Even more recently, Vitells has  found interesting connections with CLs and the work of Birnbaum~\cite{Birnbaum:1962,CLsWikipedia}. This connection is significant since statisticians have primarily seen CLs as an ad hoc procedure mixing the notion of size and power with no satisfying properties.

@@ -1,0 +1,20 @@
+The final example to consider is an extension of the `on/off' model, often referred to as the `ABCD' method.  Let us start with the `on/off' model:
+\begin{eqnarray}
+\nu_A &=& 1\cdot\mu + \nu_A^{MC} + 1\cdot\nu_A \\\nonumber
+\nu_B &=& \epsilon_B\mu \,+ \nu_B^{MC} + \tau_B\nu_A \\\nonumber
+\nu_C &=& \epsilon_C\mu \,+ \nu_C^{MC} + \tau_C\nu_A \\\nonumber
+\nu_D &=& \epsilon_D\mu \,+ \nu_D^{MC} + \tau_B\tau_C\nu_A 
+\end{eqnarray}
+where $\mu$ is the signal rate in region A, $\epsilon_i$ is the ratio of the signal in the regions B, C, D with respect to the signal in region A, $\nu_i^{MC}$ is the rate of background in each of the regions being estimated from simulation,  $\nu_i$ is the rate of the background being estimated with the data driven technique in the signal region, and $\tau_i$ are the ratios of the background rates in the regions B, C, and D with respect to the background in region A.  The key is that we have used the factorization $f_B(x,y)=f_B(x)f_B(y)$ to write $\tau_D=\tau_B\tau_C$.  The right panel of Fig.~\ref{fig:ABCD} shows a more complicated extension of the ABCD method from a recent ATLAS SUSY analysis~\cite{ATLAS:2011ad}.
+
+
+d
+
+
+An alternative parametrization, which can be more numerically stable is\\
+\begin{eqnarray}
+\nu_A &=& 1\cdot\mu + \nu_A^{MC} + \eta_C\eta_B\nu_D \\\nonumber
+\nu_B &=& \epsilon_B\mu \,+ \nu_B^{MC} + \eta_B\nu_D \\\nonumber
+\nu_C &=& \epsilon_C\mu \,+ \nu_C^{MC} + \eta_C\nu_D \\\nonumber
+\nu_D &=& \epsilon_D\mu \,+ \nu_D^{MC} + 1\cdot\nu_D 
+\end{eqnarray}

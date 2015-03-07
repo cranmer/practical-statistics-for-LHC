@@ -1,0 +1,202 @@
+\section{Modeling and the Scientific Narrative}
+
+
+Now that we have established a general form for a probability model (Eq.~\ref{Eq:simultaneous}) and we have translated the basic questions of measurement, discovery, and exclusion into the statistical language we are ready to address the heart of the statistical challenge -- building the model.  It is difficult to overestimate how important the model building stage is.  So many of the questions that are addressed to the statistical experts in the major particle physics collaborations are not really about statistics \textit{per se}, but about model building.  In fact, the first question that you are likely to be asked by one of the statistical experts is ``what is your model?'' 
+
+
+Often people are confused by the question ``what is your model?'' or simply have not written it down.  You simply can't make much progress on any statistical questions if you haven't written down a model.  Of course, people do usually have some idea for what it is that they want to do The process of writing down the model often obviates the answer to the question, reveals some fundamental confusion or assumption in the analysis strategy, or both.  As mentioned in the introduction, writing down the model is intimately related with the analysis strategy and it is a good way to organize an analysis effort.
+
+
+I like to think of the modeling stage in terms of a  \textit{scientific narrative}.  I find that there are three main narrative elements, though many analyses use a mixture of these elements when building the model.  Below I will discuss these narrative elements, how they are translated into a mathematical formulation, and their relative pros and cons.
+
+
+\subsection{Simulation Narrative}
+
+
+The simulation narrative is probably the easiest to explain and produces statistical models with the strongest logical connection to physical theory being tested.  We begin with an relation that every particle physicists should know for the rate of events expected from a specific physical process
+\begin{equation}
+\textrm{rate} = \textrm{(flux)} \times \textrm{(cross section)}  \times\textrm{(efficiency)}  \times \textrm{(acceptance)} \;,
+\end{equation}
+where the cross section is predicted from the theory, the flux is controlled by the accelerator\footnote{In some cases, like cosmic rays, the flux must be estimated since the accelerator is quite far away.}, and the efficiency and acceptance are properties of the detector and event selection criteria.  It is worth noting that the equation above is actually a repackaging of a more fundamental relationship. In fact the fundamental quantity that is predicted from first principles in quantum theory is the  \textit{scattering probability}  \mbox{$P(i\to f)=|\langle i|f\rangle|^2/ (\langle i|i\rangle\langle f | f \rangle)$} inside a box of size $V$ over some time interval $T$, which is then repackaged into the Lorentz invariant form above~\cite{Sredniki}.
+
+
+In the simulation narrative the efficiency and acceptance are estimated with computer simulations of the detector.  Typically, a large sample of events is generated using Monte Carlo techniques~\cite{MonteCarlo}.  The Monte Carlo sampling is performed separately  for the hard (perturbative) interaction (e.g. \texttt{MadGraph}), the parton shower and hadronization process (e.g. \texttt{Pythia} and \texttt{Herwig}), and the interaction of particles with the detector (e.g. \texttt{Geant}).  Note, the efficiency and acceptance depend on the physical process considered, and I will refer to each such process as a \textit{sample} (in reference to the corresponding sample of events generated with Monte Carlo techniques).
+
+
+To simplify the notation, I will define the effective cross section, $\sigma_{\rm eff.}$ to be the product of the total cross section, efficiency, and acceptance.  Thus, the total number of events expected to be selected for a given scattering process, $\nu$, is the product of the time-integrated flux or time-integrated luminosity, $\lambda$, and the effective cross section
+\begin{equation}
+\nu = \lambda \sigma_{\rm eff.}\;.
+\end{equation}
+I use $\lambda$ here instead of the more common $L$ to avoid confusion with the likelihood function and because when we incorporate uncertainty on the time-integrated luminosity it will be a parameter of the model for which I have chosen to use greek letters.  
+
+
+If we did not need to worry about detector effects and we could measure the final state perfectly, then the distribution for any observable $x$ would be given by
+\begin{equation}
+\textrm{(idealized)}\hspace{2em}f(x) = \frac{1}{\sigma_{\rm eff.}} \frac{d\sigma_{\rm eff.}}{dx}\;.\hspace{5em}
+\end{equation}
+Of course, we do need to worry about detector effects and we incorporate them with the detector simulation discussed above.  From the Monte Carlo sample of events\footnote{Here I only consider unweighted Monte Carlo samples, but the discussion below can be generalized for weighted Monte Carlo samples.} $\{x_1, \dots, x_N\}$ we can estimate the underlying distribution $f(x)$ simply by creating a histogram.  If we want we can write the histogram based on $B$ bins centered at $x_b$ with bin width $w_b$ explicitly as
+\begin{equation}
+\textrm{(histogram)} \hspace{2em}f(x) \approx h(x) =  \sum_{i=1}^N \sum_{b=1}^B  \frac{ \theta(|x_i-x_b|/w_b) }{N} \frac{\theta(|x -x_b|/w_b)}{w_b}\;,  \end{equation}
+where the first Heaviside function accumulates simulated events in the bin and the second selects the bin containing the value of $x$ in question.  Histograms are the most common way to estimate a probability density function based on a finite sample, but there are other possibilities.  The downsides of histograms as an estimate for the distribution $f(x)$ is that they are discontinuous and have dependence on the location of the bin boundaries.  A particularly nice alternative is called kernel estimation~\cite{Cranmer:2000du}.  In this approach, one places a kernel of probability $K(x)$ centered around each event in the sample:
+\begin{equation}
+\textrm{(kernel estimate)}\hspace{2em}f(x) \approx \hat{f}_0(x) =  \frac{1}{N} \sum_{i=1}^N K\left( \frac{x-x_i}{h} \right)\;.\hspace{1em}
+\end{equation}
+The most common choice of the kernel is a Gaussian distribution, and there are results for the optimal width of the kernel $h$.  Equation~\ref{eq:keys} is referred to as the fixed kernel estimate since $h$ is common for all the events in the sample.  A second order estimate or adaptive kernel estimation provides better performance when the distribution is multimodal or has both narrow and wide features~\cite{Cranmer:2000du}.
+
+
+\subsubsection{The multi-sample mixture model}
+So far we have only considered a single interaction process, or sample.  How do we form a model when there are several scattering processes contributing to the total rate and distribution of $x$?  From first principles of quantum mechanics we must add these different processes together.  Since there is no physical meaning to label individual processes that interfere quantum mechanically, I will consider all such processes as a single sample.  Thus the remaining set of samples that do not interfere simply add incoherently.  The total rate is simply the sum of the individual rates
+\begin{equation}
+\nu_{\rm tot} = \sum_{s\in\textrm{samples}} \nu_s
+\end{equation}
+and the total distribution is a weighted sum called a \textit{mixture model}
+\begin{equation}
+f(x) = \frac{1}{\nu_{\textrm{tot}}} \sum_{s\in\textrm{samples}} \nu_s f_s(x)\;,
+\end{equation}
+where the subscript $s$ has been added to the equations above for each such sample.  With these two ingredients we can construct our  marked Poisson model of Eq.~\ref{Eq:markedPoisson} for a single channel, and we can simply repeat this for several disjoint event selection requirements to form a multi-channel simultaneous model like Eq.~\ref{Eq:simultaneous}.  In the multi-channel case we will give the additional subscript $c\in\textrm{channels}$ to $\nu_{cs}$, $f_{cs}(x)$, $\nu_{c,\rm{tot}}$, and $f_c(x)$. However, at this point, our model has no free parameters $\vec\alpha$.
+
+
+\subsubsection{Incorporating physics parameters into the model}
+
+
+Now we want to parametrize our model interns of some physical parameters $\vec\alpha$, such as those that appear in the Lagrangian of a some theory.  Changing the parameters in the Lagrangian of a theory will in general change both the total rate $\nu$ and the shape of the distributions $f(x)$.  In principle, we can repeat the procedure above for each value of these parameters $\vec\alpha$ to form $\nu_{cs}(\vec\alpha)$ and $f_{cs}(x|\vec\alpha)$ for each sample and selection channel, and, thus, from $\F_\textrm{sim}(\data|\vec\alpha)$.  In practice, we need to resort to some interpolation strategy over the individual parameter points $\{\vec\alpha_i\}$ where we have Monte Carlo samples.  We will return to these interpolation strategies later.
+
+
+In some case the only effect of the parameter is to scale the rate of some scattering process $\nu_s(\vec\alpha)$ without changing its distribution $f_s(x|\vec\alpha)$.  Furthermore, the scaling is often known analytically, for instance, a coupling constants produce a linear relationship like $\nu(\alpha_p) = \xi \alpha_p  + \nu_0$.  In such cases, interpolation is not necessary and the parametrization of the likelihood function is straightforward.  
+
+
+Note, not all physics parameters need be considered parameters of interest.  There may be a free physics parameter that is not directly of interest, and as such it would be considered a nuisance parameter.  
+
+
+In the case of searches for the standard model Higgs boson, the only free parameter in the Lagrangian is $m_H$.  Once $m_H$ is specified the rates and the shapes for each of the scattering processes (combinations of production and decay modes) are specified by the theory.  Of course, as the Higgs boson mass changes the distributions do change so we do need to worry about interpolating the shapes $f(x|m_H)$.  However the results are often presented as a \textit{raster scan} over $m_H$, where one fixes $m_H$ and then asks about the rate of signal events from the Higgs boson scattering process.  With $m_H$ fixed this is really a simple hypothesis test between background-only and signal-plus-background\footnote{Note that  $H\to WW$ interferes with ``background-only'' $WW$ scattering process.  For low Higgs boson masses, the narrow Higgs width means this interference is negligible.  However, at high masses the interference effect is significant and we should really treat these two processes together as a single sample.}, but we usually choose to construct a parametrized model that does not directly correspond to any theory.  In this case the parameter of interest is some scaling of the rate with respect to the standard model prediction, $\mu = \sigma / \sigma_{\rm SM}$, such that $\mu=0$ is the background-only situation and $\mu=1$ is the standard model prediction.  Furthermore, we usually use this global $\mu$ factor for each of the production and decay modes even though essentially all theories of physics beyond the standard model would modify the rates of the various scattering processes differently. Figure~\ref{fig:confidenceIntervals} shows confidence intervals on $\mu$ for fixed values of $m_H$.  Values below the solid black curve are not excluded (since an arbitrarily small signal rate cannot be differentiated from the background-only and this is a one-sided confidence interval).
+
+
+\subsubsection{Incorporating systematic effects}
+
+
+The parton shower, hadronization, and detector simulation components of the simulation narrative are based on phenomenological models that have many adjustable parameters.  These parameters are nuisance parameters included in our master list of parameters $\vec\alpha$.  The changes in the rates $\nu(\vec\alpha)$ and shapes $f(x|\vec\alpha)$ due to these parameters lead to systematic uncertainties\footnote{Systematic uncertainty is arguably a better term than systematic \textit{error}.}.  We have already eluded to how one can deal with the presence of nuisance parameters in hypothesis testing and confidence intervals, but here we are focusing on the modeling stage.  In principle, we deal with modeling of these nuisance parameters in the same way as the physics parameters, which is to generate Monte Carlo samples for several choices of the parameters $\{\vec\alpha_i\}$ and then use some interpolation strategy to form a continuous parametrization for $\nu(\vec\alpha), f(x|\vec\alpha)$, and $\F_{\rm sim}(\data|\vec\alpha)$.  In practice, there are many nuisance parameters associated to the parton shower, hadronization, and detector simulation so this becomes a multi-dimensional interpolation problem\footnote{This is sometimes referred to as `template morphing'}.  This is one of the most severe challenges for the simulation narrative.  
+
+
+Typically, we don't map out the correlated effect of changing multiple $\alpha_p$ simultaneously.  Instead, we have some nominal settings for these parameters $\vec\alpha^0$ and then vary each individual parameter `up' and `down' by some reasonable amount $\alpha_p^\pm$.  So if we have $N_P$ parameters we typically have $1+2N_P$ variations of the Monte Carlo sample from which we try to form  $\F_{\rm sim}(\data|\vec\alpha)$.  This is clearly not an ideal situation and it is not hard to imagine cases where the combined effect on the rate and shapes cannot be factorized in terms of changes from the individual parameters.  
+
+
+What is meant by ``vary each individual parameter `up' and `down' by some reasonable amount'' in the paragraph above?  The nominal choice of the parameters $\vec\alpha^0$ is usually based on experience, test beam studies,  Monte Carlo `tunings', etc..  These studies correspond to auxiliary measurements in the language used in Sec.~\ref{S:AuxMeas} and Sec.~\ref{S:Constraint}.  Similarly, these parameters typically have some maximum likelihood estimates and standard uncertainties from the auxiliary measurements as described in Sec.~\ref{S:estimation}. Thus our complete model $\F_{\rm tot}(\data|\vec\alpha)$ of Eq.~\ref{Eq:ftot} should not only deal with parametrizing the effect of changing each $\alpha_p$ but also include either a constraint term $f_p(a_p | \alpha_p)$ or an additional channel that describes a more complete probability model for the auxiliary measurement.  
+
+
+Below we will consider a specific interpolation strategy and a few of the most popular conventions for constraint terms.  However, before moving on it is worth emphasizing that while, naively, the matrix element associated to a perturbative scattering amplitude has no free parameters (beyond the physics parameters discussed above), fixed order perturbative calculations do have residual  scale dependence.  This type of \textit{theoretical uncertainty} has no auxiliary measurement associated with it even in principle, thus it really has no frequentist description.  This was discussed briefly in Sec.~\ref{S:Constraint}.  In contrast, the parton density functions are the results of auxiliary measurements and the groups producing the parton density function sets spend time providing sensible multivariate constraint terms for those parameters.  However, those measurements also have uncertainties due to parametrization choices and theoretical uncertainties, which are not statistical in nature.  In short we must take care in ascribing constraint terms to theoretical uncertainties and measurements that have theoretical uncertainties\footnote{``Note that I deliberately called them theory \textit{errors}, not uncertainties.'' -- Tilman Plehn}.  
+
+
+\subsubsection{Tabulating the effect of varying sources of uncertainty}
+
+
+The treatment of systematic uncertainties is subtle, particularly when one wishes to take into account the correlated effect of multiple sources of systematic uncertainty across many signal and background samples.   
+The most important conceptual issue is that we separate the source of the uncertainty (for instance the uncertainty in the calorimeter's response to jets) from its effect on an individual signal or background sample (eg. the change in the acceptance and shape of a $W$+jets background).  In particular, the same source of uncertainty has a different effect on the various signal and background samples.  The effect of these `up' and `down' variations about the nominal predictions $\nu_s(\vec\alpha^0)$  and $f_{sb}(x|\vec\alpha^0)$ is quantified by dedicated studies.   The result of these studies can be arranged in tables like those below.  The main purpose of the \HF\ XML schema is to represent these tables.  And \HF\ is a tool that can convert these tables into our master model $\F_{\rm tot}(\data |\vec\alpha)$ of Eq.~\ref{Eq:ftot} implemented as a  \texttt{RooAbsPdf} with a  \texttt{ModelConfig} to make it compatible with \roostats\ tools.  The convention used by \HF\ is related to our notation via 
+\begin{equation}
+\nu_s(\vec\alpha) f_s(x|\vec\alpha) = \eta_{s}(\vec\alpha) \sigma_{s}(x|\vec\alpha) \, 
+\end{equation}
+where  $\eta_{s}(\vec\alpha)$ represents relative changes in the overall rate $\nu(\vec\alpha)$  and $\sigma_{s}(x|\vec\alpha)$ includes both changes to the rate and the shape $f(x|\vec\alpha)$.  This choice is one of convenience because histograms are often not normalized to unity, but instead in code rate information.  As the name implies, \HF\ works with histograms, so instead of writing $\sigma_{s}(x|\vec\alpha)$ the table is written as $\sigma_{sb}(\vec\alpha)$, where $b$ is a bin index. To compress the notation further, $\eta_{p=1,s=1}^+$ and $\sigma_{psb}^\pm$ represent the value of when $\alpha_p=\alpha_p^\pm$ and all other parameters are fixed to their nominal values.  Thus we arrive at the following tabular form for models built on the simulation narrative based on histograms with individual nuisance parameters varied one at a time:
+\begin{table}
+\center
+\begin{tabular}{l | c c c}
+Syst & Sample 1 & $\dots$ & Sample N \\ \hline
+Nominal Value & $\eta_{s=1}^0=1$ & \dots & $\eta_{s=N}^0=1$\\\hline
+$p$=\OS\ 1 & $\eta_{p=1,s=1}^+$, \;$\eta_{p=1,s=1}^-$ & \dots & $\eta_{p=1,s=N}^+$,\; $\eta_{p=1,s=N}^-$\\ 
+$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ \\
+$p$=\OS\ M & $\eta_{p=M,s=1}^+$, $\eta_{p=M,s=1}^-$ & \dots & $\eta_{p=M,s=N}^+$, $\eta_{p=M,s=N}^-$\\ \hline
+Net Effect & $\eta_{s=1}(\vec{\alpha})$ & \dots & $\eta_{s=N}(\vec{\alpha})$
+\end{tabular}
+\caption{Tabular representation of sources of uncertainties that produce a correlated effect in the normalization individual samples (eg. OverallSys).  The $\eta^+_{ps}$ represent histogram when $\alpha_s=1$ and are inserted into the \texttt{High} attribute of the \OS\  XML element.  Similarly, the $\eta^-_{ps}$ represent histogram when $\alpha_s=-1$ and are inserted into the \texttt{Low} attribute of the \OS\  XML element. Note, this does not imply that $\eta^+ > \eta^-$, the $\pm$ superscript correspond to the variation in the source of the systematic, not the resulting effect.}
+\end{table}
+
+
+\begin{table}
+\center
+\begin{tabular}{l | c c c}
+Syst & Sample 1 & $\dots$ & Sample N \\ \hline
+Nominal Value & $\sigma_{s=1,b}^0$ & \dots & $\sigma_{s=N,b}^0$\\\hline
+$p$=\HS\  1\;\; & $\sigma_{p=1,s=1,b}^+$, $\sigma_{p=1,s=1,b}^-$ & \dots & $\sigma_{p=1,s=N,b}^+$, $\sigma_{p=1,s=N,b}^-$\\ 
+$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ \\
+$p$=\HS\  M \;\;\;\;& $\sigma_{p=M,s=1,b}^+$, \;\;$\sigma_{p=M,s=1,b}^-$ \;\;& \dots & $\sigma_{p=M,s=N,b}^+$, \;\; $\sigma_{p=M,s=N,b}^-$\;\;\\ \hline
+Net Effect & $\sigma_{s=1,b}(\vec{\alpha})$ & \dots & $\sigma_{s=N,b}(\vec{\alpha})$
+\end{tabular}
+\caption{Tabular representation of sources of uncertainties that produce a correlated effect in the normalization and shape individual samples (eg. \HS\ ).  The $\sigma^+_{psb}$ represent histogram when $\alpha_s=1$ and are inserted into the \texttt{HighHist} attribute of the \HS\  XML element.  Similarly, the $\sigma^-_{psb}$ represent histogram when $\alpha_s=-1$ and are inserted into the \texttt{LowHist} attribute of the \HS\  XML element.   }
+\end{table}
+
+
+\subsubsection{Interpolation Conventions}
+\label{S:Interpolation} 
+
+For each sample, one can interpolate and extrapolate from the nominal prediction $\eta_s^0=1$ and the variations $\eta^\pm_{ps}$ to produce a parametrized $\eta_s(\vec{\alpha})$.   Similarly, one can interpolate and extrapolate from the nominal shape $\sigma_{sb}^0$ and the variations $\sigma^\pm_{psb}$ to produce a parametrized $\sigma_{sb}(\vec{\alpha})$.  We choose to parametrize $\alpha_p$ such that $\alpha_p=0$ is the nominal value of this parameter, $\alpha_p=\pm 1$ are the ``$\pm 1\sigma$ variations''.  Needless to say, there is a significant amount of ambiguity in these interpolation and extrapolation procedures and they must be handled with care.  Bellow are some of the interpolation strategies supported by \texttt{HistFactory}.  These are all  'vertical' style interpolation treated independently per-bin. Four interpolation strategies are described below and can be compared in Fig~\ref{fig:interp1d}.  The interested reader is invited to look at alternative 'horizontal' interpolation strategies,  such as the one developed by Alex Read in Ref.~\cite{Read:1999kh} (the \roofit\ implementation is called \texttt{RooIntegralMorph}) and Max Baak's \texttt{RooMomentMorph}.  These horizontal interpolation strategies are better suited for features moving, such as the location of an invariant mass bump changing with the hypothesized mass of a new particle..
+{\flushleft \bf Piecewise Linear (InterpCode=0)}
+
+
+The piecewise-linear interpolation strategy is defined as
+\begin{equation}
+\eta_s ({\boldsymbol \alpha}) = 1+\sum_{p\in\textrm{Syst}} I_{\rm lin.}(\alpha_p; 1, \eta_{sp}^+, \; \eta_{sp}^- ) 
+\end{equation}
+and for shape interpolation it is
+\begin{equation}
+\sigma_{sb} ({\boldsymbol \alpha}) = \sigma_{sb}^0 + \sum_{p\in\textrm{Syst}} I_{\rm lin.}(\alpha_p;  \sigma_{sb}^0, \sigma_{psb}^+ ,\;
+\sigma_{psb}^- )  
+\end{equation}
+with
+\begin{equation}
+ I_{\rm lin.}(\alpha;  I^0, I^+,I^- ) =
+ \begin{cases}
+     \alpha (I^+  -  I^0) &  \text{$\alpha\ge 0$} \\
+     \alpha (I^0  -I^-)  &  \text{$\alpha<0$ }
+ \end{cases}
+\end{equation}
+
+
+Note that one could have considered the simultaneous variation of $\alpha_{p}$ and $\alpha_{p'}$ in a multiplicative way (see for example, Fig~\ref{fig:interp2d}).  The multiplicative accumulation is not an option currently.
+
+
+Note that this is the default convention for $\sigma_{sb}(\vec{\alpha})$ (ie. \HS\ ).
+
+
+{\flushleft\bf Piecewise Exponential (InterpCode=1)}
+
+
+The piecewise exponential interpolation strategy is defined as
+\begin{equation}
+\eta_s ({\boldsymbol \alpha}) = \prod_{p\in\textrm{Syst}} I_{\rm exp.}(\alpha_p; 1,\eta_{sp}^+, \; \eta_{sp}^- ) 
+\end{equation}
+and for shape interpolation it is
+\begin{equation}
+\sigma_{sb} ({\boldsymbol \alpha}) = \sigma_{sb}^0 \prod_{p\in\textrm{Syst}} I_{\rm exp.}(\alpha_p;  \sigma_{sb}^0, \sigma_{psb}^+ ,\;
+\sigma_{psb}^- )  
+\end{equation}
+with
+\begin{equation}
+ I_{\rm exp.}(\alpha;  I^0, I^+,I^- ) =
+ \begin{cases}
+     (I^+/I_0)^ \alpha  &  \text{$\alpha\ge 0$} \\
+     (I^-/I_0)^{-\alpha}  &  \text{$\alpha<0$ }
+ \end{cases}
+\end{equation}
+
+
+Note that the one could have considered the simultaneous variation of $\alpha_{p}$ and $\alpha_{p'}$ in an additive way, but this is not an option currently.
+
+
+Note, that when paired with a Gaussian constraint on $\alpha$ this is equivalent to  linear interpolation and a log-normal constraint in $\ln(\alpha)$.  This is the default strategy for normalization uncertainties $\eta_{s}(\vec{\alpha})$ (ie. \OS\ ) and is the standard convention for normalization uncertainties in the LHC Higgs Combination Group.  In the future, the default may change to the Polynomial Interpolation and Exponential Extrapolation described below.
+
+
+{\flushleft \bf Polynomial Interpolation and Exponential Extrapolation (InterpCode=4)}
+
+
+The strategy of this interpolation option is to use the piecewise exponential extrapolation as above with a polynomial interpolation that matches $\eta(\alpha=\pm\alpha_0)$, $d\eta/d\alpha |_{\alpha=\pm\alpha_0}$, and $d^2\eta/d\alpha^2 |_{\alpha=\pm\alpha_0}$ and the boundary $\pm\alpha_0$ is defined by the user (with default $\alpha_0=1$).  
+\begin{equation}
+\eta_s ({\boldsymbol \alpha}) = \prod_{p\in\textrm{Syst}} I_{\rm poly|exp.}(\alpha_p; 1,\eta_{sp}^+, \; \eta_{sp}^- , \alpha_0) 
+\end{equation}
+with
+\begin{equation}
+ I_{\rm poly|exp.}(\alpha;  I^0, I^+,I^- , \alpha_0) =
+ \begin{cases}
+      (I^+/I_0)^ \alpha  &  \text{$\alpha\ge \alpha_0$} \\
+     1+\sum_{i=1}^6 a_i \alpha^i  &  \text{$|\alpha|< \alpha_0$} \\
+      (I^-/I_0)^{-\alpha}  &  \text{$\alpha\le-\alpha_0$ }
+ \end{cases}
+\end{equation}
+and the $a_i$ are fixed by the boundary conditions described above.

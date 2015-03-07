@@ -1,0 +1,398 @@
+In any physical theory the rate of signal events is non-negative, thus $\mu\ge 0$.  However, it is often convenient to allow $\mu<0$ (as long as the pdf $f_c(x_c | \mu,\vec\theta)\ge 0$ everywhere).  In particular, $\hat\mu<0$ indicates a deficit of events signal-like with respect to the background only and the boundary at $\mu=0$ complicates the asymptotic distributions.  Ref.~\cite{asimov} uses a  trick that is equivalent to requiring $\mu\ge 0$ while avoiding the formal complications of a boundary, which is to allow $\mu< 0$ and   impose the constraint in the test statistic itself.  In particular, one defines $\tilde \lambda(\mu)$
+\begin{equation}
+\label{eq:lambdatilde}  \tilde{\lambda}({\mu}) =  \left\{ 
+\begin{array}{ll} \frac{ L(\mu, \hat{\hat{\vec{\theta}}}(\mu)) }
+{L(\hat{\mu}, \hat{\vec{\theta}}) } & \hat{\mu} \ge 0 , \\*[0.3 cm]
+\frac{ L(\mu, \hat{\hat{\vec{\theta}}}(\mu)) }  {L(0,
+\hat{\hat{\vec{\theta}}}(0)) } & \hat{\mu} < 0 
+              \end{array} \right.
+\end{equation}
+This is not necessary when ensembles of pseudo-experiments are generated with ``Toy'' Monte Carlo techniques, but since they are equivalent we will write $\tilde\lambda$ to emphasize the boundary at $\mu=0$.
+
+
+For discovery the test statistic $\tilde{q}_0$  is used to differentiate the background-only hypothesis $\mu=0$ from the alternative hypothesis $\mu>0$:
+\begin{equation}
+\tilde{q}_{0} =  \left\{ \!
+\! \begin{array}{ll} - 2 \ln \tilde{\lambda}(\mu)  & \hat{\mu} > 0
+\\*[0.2 cm] 0 & \hat{\mu} \le 0 
+              \end{array} \right.  
+\end{equation}
+Note that $\tilde{q}_0$ is test statistic for a one-sided alternative.  Note also that if we consider the parameter of interest $\mu\ge 0$, then it is equivalent to the two-sided test (because there are no values of $\mu$ less than $\mu=0$. 
+
+
+For limit setting the test statistic $\tilde{q}_{\mu}$ is used to differentiate the hypothesis of signal being produced at a rate $\mu$ from the alternative hypothesis of signal events being produced at a lesser rate $\mu'<\mu$:
+\begin{equation}
+\label{eq:qmutilde}  
+\tilde{q}_{\mu} =  \left\{ \!
+\! \begin{array}{ll} - 2 \ln \tilde{\lambda}(\mu)  & \hat{\mu} \le \mu
+\\*[0.2 cm] 0 & \hat{\mu} > \mu 
+              \end{array} \right.  \quad = \quad \: \left\{ \!
+\! \begin{array}{lll} - 2 \ln \frac{L(\mu,
+\hat{\hat{\vec{\theta}}}(\mu))} {L(0, \hat{\hat{\theta}}(0))}   &
+\hat{\mu} < 0 \;, \\*[0.2 cm] -2 \ln \frac{L(\mu,
+\hat{\hat{\vec{\theta}}}(\mu))} {L(\hat{\mu}, \hat{\vec{\theta}})} &
+0 \le \hat{\mu} \le \mu  \;, \\*[0.2 cm] 0 & \hat{\mu} > \mu \;.
+              \end{array} \right.
+\end{equation}
+Note that $\tilde{q}_{\mu}$ is a test statistic for a one-sided alternative; it is a test statistic for a one-sided upper limit. 
+
+
+The test statistic $\tilde{t}_\mu$ is used to differentiate signal being produced at a rate $\mu$ from the alternative hypothesis of signal events being produced at a lesser or greater rate $\mu' \ne\mu$.
+\begin{equation}
+\label{eq:tmu}
+\tilde{t}_{\mu} =  - 2 \ln \tilde{\lambda}(\mu)   \; .  
+\end{equation}
+Note that $\tilde{t}_\mu$ is a test statistic for a two-sided alternative (as in the case of the Feldman-Cousins technique, though this is more general as it incorporates nuisance parameters).  Note  that if we consider the parameter of interest $\mu\ge 0$ and we the test at $\mu=0$ then there is no ``other side'' and we have $\tilde{t}_{\mu=0} = \tilde{q}_0$.  Finally, if one relaxes the constraint $\mu\ge0$ then the two-sided test statistic is written $t_\mu$ or, simply, $-2\ln\lambda(\mu)$.
+
+
+\subsection{The distribution of the test statistic and $p$-values}
+
+
+The test statistic should be interpreted as a single real-valued number that represents the outcome of the experiment.  More formally, it is a mapping of the data to a single real-valued number:  \mbox{$\tilde{q}_\mu: \datasim,\globs \rightarrow \mathbb{R}$}.  For the observed data the test statistic has a given value, eg. $\tilde{q}_{\mu,\rm obs}$.  If one were to repeat the experiment many times the test statistic would take on different values, thus, conceptually, the test statistic has a distribution.  Similarly, we can use our model to generate pseudo-experiments using Monte Carlo techniques or more abstractly consider the distribution.  Since the number of expected events $\nu(\mu,\vec\theta)$ and the distributions of the discriminating variables $f_c(x_c|\mu,\vec\theta)$ explicitly depend on $\vec\theta$ the distribution of the test statistic will also depend on $\vec\theta$.  Let us denote this distribution 
+\begin{equation}
+f(\tilde{q}_\mu | \mu, \vec\theta) \;,
+\end{equation}
+and we have analogous expressions for each of the test statistics described above.
+
+
+The $p$-value for a given observation under a particular hypothesis ($\mu,\vec\theta$) is the probability for an equally or more `extreme' outcome than observed assuming that hypothesis 
+\begin{equation}
+p_{\mu,\vec\theta} = \int_{\tilde{q}_{\mu,\rm obs}}^\infty f(\tilde{q}_\mu | \mu, \vec\theta) \, d\tilde{q}_\mu\;.
+\end{equation}
+The logic is that small $p$-values are evidence against the corresponding hypothesis.  In Toy Monte Carlo approaches, the integral above is really carried out in the space of the data $\int d\datasim  d\globs$.
+
+
+The immediate difficulty is that we are interested in $\mu$ but the $p$-values depend on both $\mu$ and $\vec\theta$.  In the frequentist approach the hypothesis $\mu=\mu_0$ would not be rejected unless the $p$-value is sufficiently small \textit{for all} values of $\vec\theta$.  Equivalently, one can use the supremum $p$-value for over all $\vec\theta$ to base the decision to accept or reject the hypothesis at $\mu=\mu_0$.
+\begin{equation}
+p^{\rm sup}_{\mu} = \sup_{\vec\theta}\; p_{\mu,\vec\theta} 
+\end{equation}
+
+
+The key conceptual reason for choosing the test statistics based on the profile likelihood ratio is that asymptotically (ie. when there are many events) the distribution of the profile likelihood ratio \mbox{$\lambda(\mu=\mu_{\rm true})$} is  independent of the values of the nuisance parameters.  This follows from Wilks's theorem.  In that limit $p^{\rm sup}_{\mu} =  p_{\mu,\vec\theta}$ for all $\vec\theta$.  
+
+
+The asymptotic distributions \mbox{$f(\lambda(\mu) | \mu, \vec\theta)$} and \mbox{$f(\lambda(\mu) | \mu', \vec\theta)$} are known and described in Sec.~\ref{sec:asymptotic}.  For results based on generating ensembles of pseudo-experiements using Toy Monte Carlo techniques does not assume the form of the distribution $f(\tilde{q}_\mu | \mu, \vec\theta)$, but knowing that it is approximately independent of $\vec\theta$ means that one does not need to calculate $p$-values for all $\vec\theta$ (which is not computationally feasible).  Since there may still be some residual dependence of the $p$-values on the choice of $\vec\theta$ we would like to know the specific value of $\vec\theta^{\rm sup}$ that produces the supremum $p$-value over $\vec\theta$.  Since larger $p$-values indicate better agreement of the data with the model, it is not surprising that choosing $\vec\theta^{\rm sup}=\hathatthetamu$ is a good estimate of $\vec\theta^{\rm sup}$.  This has been studied in detail by statisticians, and is called the Hybrid Resampling method and is referred to in physics as the `profile construction'~\cite{Feldman,Cranmer,hybridResampling,Bodhi}.
+
+
+Based on the discussion above, the following $p$-value is used to quantify consistency with the hypothesis of a signal strength of $\mu$:
+\begin{equation}
+p_{\mu}=\int_{\tilde q_{\mu,\rm obs}}^{\infty} f(\tilde q_\mu|\mu,\hat{\hat{\vec{\theta}}}(\mu,\textrm{obs})) \,d\tilde q_\mu \;.
+\end{equation}
+A standard 95\% confidence-level, one-sided frequentist confidence interval (upper limit) is obtained by  solving for $p'_{\mu_{up}}=5\%$.  For downward fluctuations the upper limit of the confidence interval can be arbitrarily small, though it will always include $\mu=0$.  This feature is considered undesirable since a physicist would not claim sensitivity to an arbitrarily small signal rate.  The feature was the motivation for the modified frequentist method called $CL_s$~\cite{Read2,Read1,CLsWikipedia}. and the alternative approach called power-constrained limits~\cite{2011arXiv1105.3166C}. 
+
+
+To calculate the $CL_s$ upper limit, we define $p'_\mu$ as a ratio of p-values,
+\begin{equation}
+p'_\mu=\frac{p_\mu}{1-p_b} \; ,
+\end{equation}
+where  $p_b$ is the $p$-value derived from the same test statistic under the background-only hypothesis
+\begin{equation}
+\label{eq:pb}
+p_b=1-\int_{\tilde q_{\mu,obs}}^\infty f(\tilde q_\mu|0,\hat{\hat{\vec{\theta}}}(\mu=0,\textrm{obs}))d\tilde q_\mu \;.
+\end{equation}
+The $CL_s$ upper-limit on $\mu$ is denoted $\mu_{up}$ and obtained by solving for $p'_{\mu_{up}}=5\%$.  
+It is worth noting that while confidence intervals produced with the ``CLs'' method over cover, a value of $\mu$ is regarded as excluded at the 95\% confidence level if $\mu<\mu_{up}$.  The amount of over coverage is not immediately obvious; however, for small values of $\mu$ the coverage approaches 100\% and for large values of $\mu$ the coverage is near the nominal 95\% (due to $\langle p_b\rangle\approx0$).
+
+
+For the purposes discovery one is interested in compatibility of the data with the background-only hypothesis.  Statistically, a discovery corresponds to rejecting the background-only hypothesis.  This compatibility is based on the following $p$-value
+\begin{equation}
+p_0=\int_{\tilde q_{0,obs}}^\infty f(\tilde q_0|0,\hat{\hat{\vec{\theta}}}(\mu=0,\textrm{obs}))d\tilde q_0 \;.
+\end{equation}
+This $p$-value is also based on the background-only hypothesis, but the test statistic $\tilde q_0$ is suited for testing the background-only while the test statistic $\tilde{q}_\mu$ in Eq.~\ref{eq:pb} is suited for testing a hypothesis with signal.
+
+
+It is customary to convert the background-only $p$-value into the quantile (or ``sigma'') of a unit Gaussian.  This conversion is purely conventional and makes no assumption that the test statistic $q_0$ is Gaussian distributed.  The conversion is defined as:
+\begin{equation}
+Z = \Phi^{-1}(1-p_0) ;\,
+\end{equation}
+where $\Phi^{-1}$ is the inverse of the cumulative distribution for a unit Gaussian.  One says the significance of the result is $Z\sigma$ and the standard discovery convention is $5\sigma$, corresponding to $p_0=2.87  \cdot 10^{-7}$.
+
+
+\subsection{Expected sensitivity and bands}
+
+
+The expected sensitivity for limits and discovery are useful quantities, though subject to some degree of ambiguity.  Intuitively, the expected upper limit is the upper limit one would expect to obtain if the background-only hypothesis is true.  Similarly, the expected significance is the significance of the observation assuming the standard model signal rate (at some $\mh$).  To find the expected limit one needs a distribution $f(\mu_up | \mu=0,\vec\theta)$.  To find the expected significance one needs the distribution $f(Z | \mu=1,\vec\theta)$ or, equivalently, $f(p_0 | \mu=1,\vec\theta)$.  We use the median instead of the mean, as it is invariant to the choice of $Z$ or $p_0$.  More importantly, is that the expected limit and significance depend on the value of the nuisance parameters $\vec\theta$, for which we do not know the true values.  Thus, the expected limit and significance will depend on some convention for choosing $\vec\theta$.  While many nuisance parameters have a nominal estimate (i.e. the global observables in the constraint terms), others do not (eg. the exponent in the $H\to\gamma\gamma$ background model).  Thus, we choose a convention that treats all of the nuisance parameters consistently, which is the profiled value based on the observed data.  Thus for  the expected limit we use $ f(\mu_{\rm up}|0,\hat{\hat{\vec{\theta}}}(\mu=0,\textrm{obs}))$ and for the expected significance we use $f(p_0 | \mu=1,\hat{\hat{\vec\theta}}(\mu=1, \rm obs))$.  An unintuitive and possibly undesirable feature of this choice is that the expected limit and significance depend on the observed data through the conventional choice for $\vec\theta$.
+
+
+With these distributions we can also define bands around the median upper limit.  Our standard limit plot shows a dark green band corresponding to $\mu_{\pm 1}$ defined by 
+\begin{equation}
+\int_{0}^{\mu_{\pm 1}}  f(\mu_{\rm up}|0,\hat{\hat{\vec{\theta}}}(\mu=0,\textrm{obs})) d\mu_{\rm up} = \Phi^{-1}(\pm 1) 
+\end{equation}
+and a light yellow band corresponding to $\mu_{\pm 2}$ defined by 
+\begin{equation}
+\int_{0}^{\mu_{\pm 2}}  f(\mu_{\rm up}|0,\hat{\hat{\vec{\theta}}}(\mu=0,\textrm{obs})) d\mu_{\rm up} = \Phi^{-1}(\pm 2) 
+\end{equation}
+
+
+\subsection{Ensemble of pseudo-experiments generated with ``Toy'' Monte Carlo}
+
+
+The $p$-values in the procedure described above require performing several integrals.  In the case of the asymptotic approach, the distributions for $\tilde q_\mu$ and $\tilde q_0$ are known and the integral is performed directly.  When the distributions are not assumed to take on their asymptotic form, then they must be constructed using Monte Carlo methods.  In the ``toy Monte Carlo'' approach one generates pseudo-experiments in which the number of events in each channel $n_c$, the values of the discriminating variables $\{x_{ec}\}$ for each of those events, and the auxiliary measurements (global observables) $a_p$ are all randomized according to $\F_{\rm tot}$.    We  denote the resulting data $\data_{\rm toy}$ and global observables $\globs_{\rm toy}$.  By doing this several times one can build an ensemble of pseudo-experiments and evaluate the necessary integrals.  Recall that Monte Carlo techniques can be viewed as a form of numerical integration.
+
+
+The fact that the auxiliary measurements $a_p$ are randomized is unfamiliar in particle physics.  The more familiar approach for toy Monte Carlo is that the nuisance parameters are randomized.  This requires a distribution for the nuisance parameters, and thus corresponds to a Bayesian treatment of the nuisance parameters.  The resulting $p$-values are a hybrid Bayesian-Frequentist quantity with no consistent definition of probability.  To maintain a strictly frequentist procedure, the corresponding operation is to randomize the auxiliary measurements.  
+
+
+While formally this procedure is well motivated, as physicists we also know that our models can have deficiencies and we should check that the distribution of the auxiliary measurements does not deviate too far from our expectations.  In Section~\ref{Sec:crossChecks} we show the distribution of the auxiliary measurements and the corresponding $\hat{\vec\theta}$ from the toy Monte Carlo technique.  
+
+
+Technically, the pseudo-experiments are generated with the \texttt{RooStats} \texttt{ToyMCSampler}, which is used by the higher-level tool \texttt{FrequentistCalculator}, which is in turn used by \texttt{HypoTestInverter}.
+
+
+\subsection{Asymptotic Formulas }
+
+
+The following has been extracted from Ref.~\cite{asimov} and has been reproduced here for convenience.  The primary message of Ref.~\cite{asimov} is that for a sufficiently large data sample the distributions of the likelihood ratio based test statistics above converge to a specific form.  In particular, Wilks's theorem~\cite{Wilks} can be used to obtain the distribution $f(\lambda(\mu)|\mu)$, that is the distribution of the test statistic $\lambda(\mu)$ when $\mu$ is true.  Note that the asymptotic distribution is independent of the value of the nuisance parameters. Wald's theorem~\cite{Wald} provides the generalization to $f(\lambda(\mu)|\mu',\vec\theta)$, that is when the true value is not the same as the tested value.  The various formulae listed below are corollaries of Wilks's and Wald's theorems for the likelihood ratio test statistics described above.  The Asimov data described immediately below was a novel result of Ref.~\cite{asimov}.
+
+
+\subsubsection{The Asimov data and  $\sigma=\textrm{var}$($\hat\mu$)}
+\label{S:Asimov} 
+
+The asymptotic formulae below require knowing the variance of the maximum likelihood estimate of $\mu$
+\begin{equation}
+ \sigma=\textrm{var}[\hat\mu]\;.
+ \end{equation}
+One result of Ref.~\cite{asimov} is that $\sigma$ can be
+estimated with an artificial dataset referred to as the \textit{ Asimov} dataset.  The Asimov dataset is defined as a binned dataset, where the number of events in bin $b$ is exactly the number of events expected in bin $b$.  Note, this means that the dataset generally has non-integer number of events in each bin.  For our general model one can write
+\begin{equation}
+\label{eq:asimovData}
+n_{b,A} = \int_{x \in \textrm{bin}~b} \nu(\vec\alpha) f(x|\vec\alpha) dx \;
+\end{equation}
+where the subscript $A$ denotes that this is the Asimov data.  Note, that the dataset depends on the value of $\vec\alpha$ implicitly.  For an model of unbinned data, one can simply take the limit of narrow bin widths for the Asimov data.    We denote the likelihood evaluated with the Asimov data as $L_{\rm A}(\mu)$. 
+The important result is that one can calculate the expected Fisher information of Eq.~\ref{Eq:expfisher} by computing the observed Fisher information on the likelihood function based on this special Asimov dataset.  
+
+
+A related and convenient way to calculate the variance of $\hat\mu$ is 
+\begin{equation}
+\label{eq:sigmaofmu}
+\sigma \sim \frac{\mu}{\sqrt {\tilde q_{\mu,A}}} \;.
+\end{equation}
+where $\tilde q_{\mu,A}$ is the to use the $\tilde q_\mu$ test statistic based on a background-only Asimov data (ie. the one with$\mu=0$ in Eq.~\ref{eq:asimovData}).  It is worth noting that higher-order corrections to the formulae below are being developed to address the case when the variance of $\hat\mu$ depends strongly on $\mu$.
+
+
+\subsubsection{Asymptotic Formulas for $\tilde q_{0}$}
+For a sufficiently large data sample,  the pdf $f(\tilde{q}_{0} | \mu')$ is found to approach
+\begin{equation}
+\label{eq:fq0muprimewald}
+f(q_0 | \mu^{\prime}) = \left( 1 - 
+\Phi \left( \frac{ \mu^{\prime}}{\sigma} \right) \right) \delta(q_0)  + 
+\frac{1}{2}
+\frac{1}{\sqrt{2 \pi}} \frac{1}{\sqrt{q_0}} \exp 
+\left[ - \frac{1}{2} \left( \sqrt{q_0} - \frac{\mu^{\prime}}{\sigma} 
+\right)^2 \right] 
+\;.
+\end{equation}
+For the special case of $\mu^{\prime} = 0$, this reduces to
+\begin{equation}
+\label{eq:fq00}
+f(q_0 | 0) = \frac{1}{2} \delta(q_0) + 
+\frac{1}{2} \frac{1}{\sqrt{2 \pi}} \frac{1}{\sqrt{q_0}} e^{-q_0/2} \;.
+\end{equation}
+That is, one finds a mixture of a delta function at zero and
+a chi-square distribution for one degree of freedom, with each term
+having a weight of $1/2$.  In the following we will refer to this
+mixture as a half chi-square distribution or $\half \chi^2_1$.
+
+
+From Eq.~(\ref{eq:fq0muprimewald}) the corresponding cumulative
+distribution is found to be
+\begin{equation}
+\label{cdfq0muprimewald}
+F(q_0 | \mu^{\prime}) = \Phi \left( \sqrt{q_0} - \frac{\mu^{\prime}}{\sigma} 
+\right) \;.
+\end{equation}
+
+
+The important special case $\mu^{\prime} = 0$ is therefore simply
+\begin{equation}
+\label{cdfq00wald}
+F(q_0 | 0) = \Phi \Big( \sqrt{q_0} \Big)
+\;.
+\end{equation}
+The $p$-value of the $\mu=0$ hypothesis is 
+\begin{equation}
+\label{eq:pval0}
+p_0 = 1 - F(q_0 | 0) \;, 
+\end{equation}
+and therefore for the significance gives the simple formula
+\begin{equation}
+\label{eq:Z0}
+Z = \Phi^{-1}(1 - p_0) = \sqrt{q_0} \;.
+\end{equation}
+
+
+\subsubsection{Asymptotic Formulas for $\tilde q_{\mu}$}
+\label{sec:tildeqmu} 
+
+For a sufficiently large data sample,  the pdf $f(\tilde{q}_{\mu} | \mu)$ is found to approach
+\begin{eqnarray}
+\label{eq:ftildeqmmp} 
+f(\tilde{q}_{\mu}|\mu^{\prime}) & = & 
+\Phi \left( \frac{\mu^{\prime} - \mu}{\sigma} \right) 
+\delta (\tilde{q}_{\mu}) \nonumber \\*[0.3 cm] 
+& + &
+ \: \left\{ \! \! \begin{array}{lll}
+\frac{1}{2} \frac{1}{\sqrt{2 \pi}} \frac{1}{\sqrt{\tilde{q}_{\mu}}}
+\exp \left[ -\frac{1}{2} \left( \sqrt{\tilde{q}_{\mu}} -
+\frac{\mu - \mu^{\prime}}{\sigma} \right)^2 \right]
+                 & 0 < \tilde{q}_{\mu} \le \mu^2/\sigma^{2}  \\*[0.5 cm]
+\frac{1}{\sqrt{2 \pi} \sigma} \exp \left[
+-\frac{1}{2} \frac{ (\tilde{q}_{\mu} - 
+(\mu^2 - 2 \mu \mu^{\prime})/\sigma^{2} )^2 }
+{(2 \mu/\sigma)^2} \right] 
+                 &  \quad \tilde{q}_{\mu} > \mu^2/\sigma^{2} 
+              \end{array}
+       \right.
+\;.
+\end{eqnarray}
+The special case $\mu = \mu^{\prime}$ is therefore
+\begin{equation}
+\label{eq:ftildeqmm} 
+f(\tilde{q}_{\mu}|\mu) = 
+\frac{1}{2} \delta (\tilde{q}_{\mu}) +
+ \: \left\{ \! \! \begin{array}{lll}
+\frac{1}{2} \frac{1}{\sqrt{2 \pi}} \frac{1}{\sqrt{\tilde{q}_{\mu}}}
+e^{- \tilde{q}_{\mu}/2}
+                 & 0 < \tilde{q}_{\mu} \le \mu^2/\sigma^2  \\*[0.5 cm]
+\frac{1}{\sqrt{2 \pi} \sigma} \exp \left[
+-\frac{1}{2} \frac{ (\tilde{q}_{\mu} + \mu^2/\sigma^2 )^2 }
+{(2 \mu/\sigma)^2} \right] 
+                 &  \quad \tilde{q}_{\mu} > \mu^2/\sigma^2 \;.
+              \end{array}
+       \right.
+\end{equation}
+The corresponding cumulative distribution is
+\begin{equation}
+\label{eq:tildeqmmpcdf} 
+F(\tilde{q}_{\mu}|\mu^{\prime}) = 
+ \: \left\{ \! \! \begin{array}{lll}
+\Phi\left( \sqrt{\tilde{q}_{\mu}} - 
+\frac{\mu - \mu^{\prime}}{\sigma} \right)
+                 & \quad 0 < \tilde{q}_{\mu} \le \mu^2/\sigma^{2}  
+\;, \\*[0.5 cm]
+\Phi \left( \frac{ \tilde{q}_{\mu} - 
+(\mu^2 - 2 \mu \mu^{\prime})/\sigma^{2}}
+{2\mu/\sigma} \right)
+                 &  \quad \tilde{q}_{\mu} > \mu^2/\sigma^{2} \;.
+              \end{array}
+       \right.
+\end{equation}
+
+
+The special case $\mu = \mu^{\prime}$ is
+\begin{equation}
+\label{eq:tildeqmmcdf} 
+F(\tilde{q}_{\mu}|\mu) = 
+ \: \left\{ \! \! \begin{array}{lll}
+\Phi\Big( \sqrt{\tilde{q}_{\mu}} \Big)
+                 & \quad 0 < \tilde{q}_{\mu} \le \mu^2/\sigma^2  
+\;, \\*[0.5 cm]
+\Phi \left( \frac{ \tilde{q}_{\mu} + \mu^2/\sigma^2}
+{2\mu/\sigma} \right)
+                 &  \quad \tilde{q}_{\mu} > \mu^2/\sigma^2 \;.
+              \end{array}
+       \right.
+\end{equation}
+
+
+The $p$-value of the hypothesized $\mu$ is as before
+given by one minus the cumulative distribution,
+
+
+\begin{equation}
+\label{eq:pvalmutilde}
+p_{\mu} = 1 - F(\tilde{q}_{\mu} | \mu) \;.
+\end{equation}
+
+
+As when using $q_{\mu}$, the upper limit on $\mu$ at confidence level
+$1 - \alpha$ is found by setting $p_{\mu} = \alpha$ and solving for
+$\mu$, which reduces to the same result as found when using $q_{\mu}$,
+namely,
+
+
+\begin{equation}
+\label{eq:muuptilde}
+\mu_{\rm up} =  \hat{\mu} + \sigma \Phi^{-1}(1 - \alpha) \;.
+\end{equation}
+
+
+Note that because $\sigma$ depends in general on $\mu$,
+Eq.~(\ref{eq:muuptilde}) must be solved numerically.  
+
+
+\subsubsection{Expected $\mathrm{CL}_s$ Limit and Bands}
+For the $CL_s$ method we need distributions for $\tilde{q}_\mu$ for the hypothesis at $\mu$ and $\mu=0$.   We find
+\begin{equation}
+ p'_{\mu}=\frac{1-\Phi(\sqrt{q_\mu})}{\Phi(\sqrt{q_{\mu,A}}-\sqrt{q_{\mu}})}
+ \end{equation}
+The median and expected error bands will therefore be
+\begin{equation}
+   \mu_{{up}+N}=\sigma(\Phi^{-1}(1-\alpha \Phi(N))+N)
+   \end{equation}
+\begin{equation}
+   \sigma^2=\frac{\mu^2}{q_{\mu,A}}
+      \end{equation}
+Note that for $N=0$ we find the median limit    
+\begin{equation}
+   \mu_{up}^{med}=\sigma \Phi^{-1}(1-0.5\alpha)
+      \end{equation}
+
+
+The fact that $\sigma$ (the variance of $\hat{\mu}$) defined in Eq.~\ref{eq:sigmaofmu} in general depends on $\mu$ complicates situations and can lead to some discrepancies between the correct value of the bands and those obtained with the equation above.  The bands tend to be too narrow.  A modified treatment of the bands taking into account the $\mu$ dependence of $\sigma$ is under development.
+
+
+\subsection{Importance Sampling}
+
+
+[The following section has been adapted from text written primarily by Sven Kreiss, Alex Read, and myself for the ATLAS Higgs combination.  It is reproduced here for convenience. ]
+
+
+To claim a discovery, it is necessary to populate a small tail of a test statistic distribution. Toy Monte-Carlo techniques use the model $\F_{\rm tot}$ to generate toy data $\data_{toy}$. For every pseudo-experiment (toy), the test statistic is calculated and added to the test statistic distribution. Building this distribution from toys is independent of the assumptions that go into the asymptotic calculation that describes this distribution with an analytic expression.   Recently progress has been made using Importance Sampling to populate the extreme tails of the test statistic distribution, which is much more computationally intensive with standard methods. The presented algorithms are implemented in \roostats\ \texttt{ToyMCSampler}.
+
+
+\subsubsection{Naive Importance Sampling}
+
+
+
+{\rm weight} = \frac{\F_{\rm tot}( \data_{\rm toy}, \globs_{\rm toy} | \mu=0,\nuisObs)} {\F_{\rm tot}( \data_{\rm toy}, \globs_{\rm toy} | \mu=\mu',\nuisObs)}
+
+
+An ensemble of "standard toys" is generated from a model representing the Null hypothesis with $\mu=0$ and the nuisance parameters $\vec\theta$ fixed at their profiled values to the observed data $\nuisObs$, written\\ \mbox{$\F_{\rm tot}(\datasim,\globs|\mu=0,\nuisObs)$}. With importance sampling however, the underlying idea is to generate toys from a different model, called the importance density. A valid importance density is for example the same model with a non-zero value of $\mu$. The simple Likelihood ratio is calculated for each toy and used as a weight.
+
+
+The weighted distribution is equal to a distribution of unweighted toys generated from the Null. The choice of the importance density is a delicate issue. Michael Woodroofe presented a prescription for creating a well behaved importance density~\cite{Woodroofe}. Unfortunately, this method is impractical for models as large as the combined Higgs models. An alternative approach is shown below.
+
+
+\subsubsection{Phase Space Slicing}
+The first improvement from naive importance sampling is the idea of taking toys from both, the null density and the importance density. There are various ways to do that. Simply stitching two test statistic distributions together at an arbitrary point has the disadvantage that the normalizations of both distributions have to be known.
+
+
+Instead, it is possible to select toys according to their weights. First, toys are generated from the Null and the simple Likelihood ratio is calculated. If it is larger than one, the toy is kept and otherwise rejected. Next, toys from the importance density are generated. Here again, the simple Likelihood ratio is calculated but this time the toy is rejected when the Likelihood ratio is larger than one and kept when it is smaller than one. If kept, the toy's weight is the simple Likelihood ratio which is smaller than one by this prescription.
+
+
+In the following section, this idea is restated such that it generalizes to multiple importance densities.
+
+
+\subsubsection{Multiple Importance Densities}
+
+
+The above procedure for selecting and reweighting toys that were generated from both densities can be phrased in the following way:
+\begin{itemize}
+   \item A toy is generated from a density with $\mu=\mu'$ and the Likelihoods $\F_{\rm tot}( \data_{\rm toy}, \globs_{\rm toy} | \mu=0,\nuisObs)$ and $\F_{\rm tot}( \data_{\rm toy}, \globs_{\rm toy} | \mu=\mu',\nuisObs)$ are calculated.
+   \item The toy is veto-ed when the Likelihood with $\mu=\mu'$ is not the largest. Otherwise, the toy is used with a weight that is the ratio of the Likelihoods.
+\end{itemize}
+This can be generalized to any number of densities with $\mu_i=\{0, \mu', \mu'', \ldots\}$. For the toys generated from model $i$:
+\begin{align}
+\textrm{veto:}& \textrm{ if } \F_{\rm tot}( \data_{\rm toy}, \globs_{\rm toy} | \mu=\mu_i,\nuisObs) \neq \max\left\{ \F_{\rm tot}( \data_{\rm toy}, \globs_{\rm toy} | \mu=\mu_j,\nuisObs) : \mu_j = \{0, \mu', \mu'', \ldots\}\right\} \\
+\textrm{weight} &= \frac{\F_{\rm tot}( \data_{\rm toy}, \globs_{\rm toy} | \mu=0,\nuisObs)}{\F_{\rm tot}( \data_{\rm toy}, \globs_{\rm toy} | \mu=\mu_i,\nuisObs)}
+\end{align}
+
+
+The number of importance densities has to be known when applying the vetos. It should not be too small to cover the parameter space appropriately and it should not be too large, because too many importance densities lead to too many vetoed toys which decreases overall efficiency. The value and error of $\hat{\mu}$ from a fit to data can be used to estimate the required number of importance densities for a given target overlap of the distributions.
+
+
+The sampling efficiency in the tail can be further improved by generating a larger number of toys for densities with larger values of $\mu$. For example, for $n$ densities, one can generate $2^k / 2^n = 2^{k-n}$ of the overall toys per density $k$ with $k=0, \ldots, n-1$. The toys have to be re-weighted for example by $2^{n-1} / 2^k$ resulting in a  minimum re-weight factor of one. The current implementation of the error calculation for the p-value is independent of an overall scale in the weights.
+
+
+The method using multiple importance densities is similar to Michael Woodroofe's \cite{Woodroofe} prescription of creating a suitable importance density with an integral over $\mu$. In the method presented here, the integral is approximated by a sum over discrete values of $\mu$. Instead of taking the sum, a mechanism that allows for multiple importance densities is introduced.
