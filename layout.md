@@ -2,7 +2,7 @@ abstract.tex
 mboxboldmathtextstyl.tex
 sectionIntroduction_.tex
 sectionConceptual_bu.tex
-figures/Hierarchy_with_Notation/default_figure.png
+figures/Hierarchy_with_Notation/Hierarchy_with_Notation.png
 subsectionAuxiliary_.tex
 sectionPhysics_quest.tex
 figures/NeymanPearsonLemma/default_figure.png
