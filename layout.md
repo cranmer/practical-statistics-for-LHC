@@ -5,7 +5,7 @@ sectionConceptual_bu.tex
 figures/Hierarchy_with_Notation/Hierarchy_with_Notation.png
 subsectionAuxiliary_.tex
 sectionPhysics_quest.tex
-figures/NeymanPearsonLemma/default_figure.png
+figures/NeymanPearsonLemma/NeymanPearsonLemma.png
 How_does_this_genera.tex
 figures/CLs/default_figure.png
 In_a_frequentist_set.tex
