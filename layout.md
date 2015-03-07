@@ -14,7 +14,7 @@ figures/fc_to_NC_twosided/default_figure.png
 Note_a_95_confidence.tex
 sectionModeling_and_.tex
 figures/interpOption_8_12/default_figure.png
-subsubsectionConsist.tex
+Consistent Bayesian & Frequentist modeling.tex
 figures/lognormal/default_figure.png
 Incorporating MC Statistical uncertainty.tex
 figures/H_2ph/default_figure.png
