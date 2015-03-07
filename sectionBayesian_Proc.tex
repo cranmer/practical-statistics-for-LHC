@@ -1,0 +1,62 @@
+\section{Bayesian Procedures}
+
+
+[This section is far from complete.  Some key practical issues and references to other literature are given.]
+
+
+Unsurprisingly, Bayesian procedures are based on Bayes's theorem as in Eq.~\ref{Eq:Bayes} and Eq.~\ref{eq:urprior}.  The Bayesian approach requires one to provide a prior over the parameters, which can be seen either as an advantage or a disadvantage~\cite{DAgostiniInference,Cousins:1994yw}.  In practical terms, one typically wants to build the posterior distribution for the parameter of interest.  This typically requires integrating, or \textit{marginalizing}, over all the nuisance parameters as in Eq.~\ref{eq:credible}.  These integrals can be over very high dimensional posteriors with complicated structure.  One of the most powerful algorithms for this integration is Markov Chain Monte Carlo, described below.  In terms of the prior one can either embrace the subjective Bayesian approach~\cite{Jaynes:2003fk} or take a more 'objective' approach in which the prior is derived from formal rules.  For instance, Jeffreys's Prior~\cite{JeffreysPrior} or their generalization in terms of Reference Priors~\cite{Demortier:2010sn}.  
+
+
+Given the logical importance of the choice of prior, it is generally recommended to try a few options to see how the result numerically depends on the choice of priors (i.e.. sensitivity analysis).  This leads me to a few great quotes from prominent statisticians:
+
+
+``Sensitivity analysis is at the heart of scientific Bayesianism'' --Michael Goldstein
+
+
+``Perhaps the most important general lesson is that the facile use of what appear to be uninformative priors is a dangerous practice in high dimensions'' -Brad Efron
+
+
+``Meaningful prior specification of beliefs in probabilistic form over very large possibility spaces is very difficult and may lead to a lot of arbitrariness in the specification'' -- Michael Goldstein
+
+
+``Objective Bayesian analysis is the best frequentist tool around'' --Jim Berger
+
+
+\subsection{Hybrid Bayesian-Frequentist methods}
+
+
+It is worth mentioning that in particle physics there has been widespread use of a hybrid Bayesian-Frequentist approach in which one marginalizes nuisance parameters.  Perhaps the most well known example is due to a paper by Cousins and Highland~\cite{CousinsHighland:1991qz}.  In some instances one obtains a Bayesian-averaged model that depends only on the parameters of interest
+\begin{equation}
+\bar{\F}(\data | \vec\alpha_{\rm poi}) = \int  \F_{\rm tot}(\data | \vec\alpha) \eta(\vec\alpha_{\rm nuis}) \; d\vec\alpha_{\rm nuis}
+\end{equation}
+and then proceeds with the typical frequentist methodology for calculating p-values and constructing confidence intervals. Note, in this approach the constraint terms that are appended to $\F_{\rm sim}$ of Eq.~\ref{Eq:simultaneous} to obtain $\F_{\rm tot}$ of Eq.~\ref{Eq:ftot} are interpreted as in Eq.~\ref{eq:urprior} and $\eta(\vec\alpha_{\rm nuts})$ is usually a uniform prior.  Furthermore, the global observables or auxiliary measurements $a_p$ are typically left fixed to their nominal or observed values and not randomized.
+In other variants the full model without constraints $\F_{\rm sim}(\data | \vec\alpha)$ is used to define the test statistic but the distribution of the test statistic is obtained by marginalizing (or randomizing) the nuisance parameters as in Eq.~\ref{eq:urprior}.  See the following references for more details  \cite{Conrad:2005zm,Tegenfeldt:2004dk,Conrad:2002ur,Conrad:2002kn,Rolke:2004mj,PhysRevD.67.118101,Demortier:2007zz,Cousins:2008zz}.  
+
+
+The shortcomings of this approach are that the coverage is not guaranteed and the method uses an inconsistent notion of probability.  Thus it is hard to define exactly what the p-values and intervals mean in a formal sense.
+
+
+\subsection{Markov Chain Monte Carlo and the Metropolis-Hastings Algorithm}
+
+
+	The Metropolis-Hastings algorithm is used to construct a Markov chain $\{\vec\alpha_i\}$, where the samples $\vec\alpha_i$ are proportional to the target posterior density or likelihood function.  The algorithm requires a proposal function $Q(\vec\alpha | \vec\alpha')$ that gives the probability density to propose the point $\vec\alpha$ given that the last point in the chain is $\vec\alpha'$.  Note, the density only depends on the last step in the chain, thus it is considered a Markov process.  At each step in the algorithm, a new point in parameter space is proposed and possibly appended to the chain based on its likelihood relative to the current point in the chain.  Even when the proposal density function is not symmetric, Metropolis Hastings maintains `detailed balance' when constructing the Markov chain by counterbalancing the relative likelihood between the two points with the relative proposal density.  That is, given the current point $\vec\alpha$, proposed point $\vec\alpha'$, likelihood function $L$, and proposal density function $Q$, we visit $\vec\alpha'$ if and only if
+\begin{equation}
+\displaystyle \frac{L(\vec\alpha')}{L(\vec\alpha)} \frac{Q(\vec\alpha | \vec\alpha')}{Q(\vec\alpha' | \vec\alpha)} \geq Rand[0,1]
+\end{equation}
+Note, if the proposal density is symmetric, $Q(\vec\alpha | \vec\alpha')=Q(\vec\alpha' | \vec\alpha)$, then the ratio of the proposal densities can be neglected (which can be computationally expensive).  Above we have written the algorithm to sample the likelihood function $L(\vec\alpha)$, but typically one would use the posterior $\pi(\vec\alpha)$. Within \roostats\ the Metropolis-Hastings algorithm is implemented with the \texttt{MetropolisHastings} class, which returns a \texttt{MarkovChain}.  Another powerful tool is the Bayesian Analysis Toolkit (BAT)~\cite{Caldwell:2009ve}.  Note, one can use a \roofit\ / \roostats\ model in the BAT environment.
+
+
+Note, an alternative to Markov Chain Monte Carlo is the nested sampling approach of Skilling~\cite{skilling:395} and the \texttt{MultiNest} implementation~\cite{Feroz:2008xx}.
+
+
+Lastly, we mention that sampling algorithms associated to Bayesian belief networks and graphical models may offer enormous advantages to both MCMC and nested sampling due to the fact that they can take advantage of the conditional dependencies in the model.
+
+
+\subsection{Jeffreys's and Reference Prior}
+
+
+One of the great advances in Bayesian methodology was the introduction of Jeffreys's rule for selecting a prior based on a formal rule~\cite{JeffreysPrior}.  The rule selects a prior that is invariant under reparametrization of the observables and covariant with reparametrization of the parameters.  The rule is based on information theoretic arguments and the prior is given by the square root of the determinant of the Fisher information matrix, which we first encountered in Eq.~\ref{Eq:expfisher}.
+\begin{equation}
+\pi(\vec\alpha)  =  \sqrt{\det \Sigma^{-1}_{pp'}(\vec\alpha)} = \sqrt{ \det \left[ \int  \F_{\rm tot}(\data | \vec\alpha) \; \frac{-\partial^2 \log \F_{\rm tot}(\data | \vec\alpha)}{\partial\alpha_p\alpha_{p'}} \; d\data  \right]}\
+\end{equation}
+While the right-most form of the prior looks daunting with complex integrals over partial derivatives, the Asimov data described in Sec.~\ref{S:Asimov} and Ref.~\cite{asimov} provide a convenient way to calculate the Fisher information.  Fig.~\ref{fig:JeffreysPriorGaussian} and \ref{fig:JeffreysPriorPoisson} show examples of \roostats\ numerical algorithm for calculating Jeffreys's prior compared to analytic results on a simple Gaussian and a Poisson model.

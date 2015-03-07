@@ -1,0 +1,40 @@
+\section{Frequentist Statistical Procedures}
+\label{UE:Inputs} 
+
+Here I summarize the procedure used by the LHC Higgs combination group  for computing frequentist  $p$-values uses for 
+quantifying the agreement with the background-only hypothesis and for determining exclusion limits.  
+The procedures are based on the profile likelihood ratio test statistic.  
+
+
+The parameter of interest is the overall signal strength factor $\mu$, which acts as a scaling to the total rate of signal events.  We often write $\mu=\sigma/\sigma_{SM}$, where $\sigma_{SM}$ is the standard model production cross-section; however, it should be clarified that the same $\mu$ factor is used for all production modes and could also be seen as a scaling on the branching ratios.  The signal strength is called so that $\mu=0$ corresponds to the background-only model and $\mu=1$ is the standard model signal.  It is convenient to separate the full list of parameters $\vec\alpha$ into the parameter of interest $\mu$ and the nuisance parameters $\vec\theta$: $\vec\alpha=(\mu,\vec\theta)$.
+
+
+For a given data set $\datasim$ and values for the global observables $\globs$ there is an associated likelihood function over $\mu$ and $\theta$ derived from combined model over all the channels including all the constraint terms in Eq.~\ref{Eq:ftot}
+\begin{equation}
+L(\mu,\vec\theta;\datasim,\globs) = \F_{\rm tot}(\datasim,\globs|\mu,\vec\theta) \;.
+\end{equation}
+The notation $L(\mu,\vec\theta)$ leaves the dependence on the data implicit, which can lead to confusion.  Thus, we will explicitly write the dependence on the data when the identity of the dataset is important and only suppress $\datasim,\globs$ when the statements about the likelihood are generic.
+
+
+We begin with the definition of the procedure in the abstract and then describe three implementations of the method based on asymptotic distributions, ensemble tests (Toy Monte Carlo),  and importance sampling.
+
+
+\subsection{The test statistics and estimators of $\mu$ and $\vec\theta$}
+
+
+This definitions in this section are all relative to a given dataset $\datasim$ and value of the global observables $\globs$, thus we will suppress their appearance.  The nomenclature follows from Ref.~\cite{asimov}.
+
+
+The maximum likelihood estimates (MLEs) $\hat\mu$ and $\hat{\vec\theta}$ and the values of the parameters that maximize the likelihood function $L(\mu,\vec\theta)$ or, equivalently, minimize $-\ln L(\mu,\vec\theta)$.  The dependence of the likelihood function on the data propagates to the values of the MLEs, so when needed the MLEs will be given subscripts to indicate the data set used.  For instance, $\hat{\vec\theta}_{\rm obs}$ is the MLE of $\vec\theta$ derived from the observed data and global observables. 
+
+
+The conditional maximum likelihood estimate (CMLEs) $\hathatthetamu$ is the value of $\vec\theta$ that maximizes the likelihood function with $\mu$ fixed; it can be seen as a multidimensional function of the single variable $\mu$.  Again, the dependence on $\datasim$ and $\globs$ is implicit. This procedure for choosing specific values of the nuisance parameters for a given value of $\mu$, $\datasim$, and $\globs$ is often referred to as ``profiling''.  Similarly, $\hathatthetamu$ is often called ``the profiled value of $\vec\theta$''.
+
+
+Given these definitions, we can construct the profile likelihood ratio
+\begin{equation}
+\label{eq:lambdatilde}  
+{\lambda}({\mu}) =  \frac{ L(\mu, \hat{\hat{\vec{\theta}}}(\mu)) }
+{L(\hat{\mu}, \hat{\vec{\theta}}) } \;,
+\end{equation}
+which depends explicitly on the parameter of interest $\mu$, implicitly on the data $\datasim$ and global observables $\globs$, and is independent of the nuisance parameters $\vec\theta$ (which have been eliminated via ``profiling'').

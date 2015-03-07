@@ -1,0 +1,39 @@
+\subsubsection{Incorporating Monte Carlo statistical uncertainty on the histogram templates}
+
+
+The histogram based approach described above are based Monte Carlo simulations of full detector simulation.  These simulations are very computationally intensive and often the histograms are sparsely populated.  In this case the histograms are not good descriptions of the underlying distribution, but are estimates of that distribution with some statistical uncertainty.  Barlow and Beeston outlined a treatment of this situation in which each bin of each sample is given a nuisance parameter for the true rate, which is then fit using both the data measurement and the Monte Carlo estimate~\cite{Barlow:1993dm}.  This approach would lead to several hundred nuisance parameters in the current analysis.  Instead, the \texttt{HistFactory} employs a lighter weight version in which there is only one nuisance parameter per bin associated with the total Monte Carlo estimate  and the total statistical uncertainty in that bin.  If we focus on an individual bin with index $b$ the contribution to the full statistical model is the factor
+\begin{equation}
+\Pois(n_b | \nu_b(\vec\alpha) + \gamma_b \nu_b^{\rm MC}(\vec\alpha)) \,  \Pois(m_b | \gamma_b \tau_b) \;,
+\end{equation}
+where $n_b$ is the number of events observed in the bin, $\nu_b(\vec\alpha)$ is the number of events expected in the bin where Monte Carlo statistical uncertainties need not be included (either because the estimate is data driven or because the Monte Carlo sample is sufficiently large), $\nu_b^{\rm MC}(\vec\alpha)$ is the number of events estimated using Monte Carlo techniques where the statistical uncertainty needs to be taken into account.  Both expectations include the dependence on the parameters $\vec\alpha$.  The factor $\gamma_b$ is the nuisance parameter reflecting that the true rate may differ from the Monte Carlo estimate $\nu_b^{\rm MC}(\vec\alpha) $ by some amount.  If the total statistical uncertainty is $\delta_b$, then the relative statistical uncertainty is given by $\nu_b^{\rm MC}/\delta_b$.  This corresponds to a total Monte Carlo sample in that bin of size $m_b =  (\delta_b/\nu_b^{\rm MC})^2$.  Treating the Monte Carlo estimate as an auxiliary measurement, we arrive at a Poisson constraint term $ \Pois(m_b | \gamma_b \tau_b)$, where $m_b$ would fluctuate about $\gamma_b \tau_b$ if we generated a new Monte Carlo sample.  Since we have scaled $\gamma$ to be a factor about 1, then we also have $\tau_b=(\nu_b^{\rm MC}/\delta_b)^2$; however, $\tau_b$ is treated as a fixed constant and does not fluctuate when generating ensembles of pseudo-experiments.
+
+
+It is worth noting that the conditional maximum likelihood estimate $\hat{\hat{\gamma_b}}(\vec\alpha)$ can be solved analytically with a simple quadratic expression.
+\begin{equation}
+\hat{\hat{\gamma_b}}(\vec\alpha) = \frac{-B + \sqrt{B^2 - 4 AC}}{2A} \;,
+\end{equation}
+with
+\begin{equation}
+A =  \nu_b^{\rm MC}(\vec\alpha)^2 + \tau_b  \nu_b^{\rm MC}(\vec\alpha)
+\end{equation}
+\begin{equation}
+B= \nu_b(\vec\alpha) \tau +  \nu_b(\vec\alpha) \nu_b^{\rm MC}(\vec\alpha) - n_b  \nu_b^{\rm MC}(\vec\alpha) - m_b  \nu_b^{\rm MC}(\vec\alpha)
+\end{equation}
+\begin{equation}
+C= m_b \nu_b(\vec\alpha) \;.
+\end{equation}
+
+
+In a Bayesian technique with a flat prior on $\gamma_b$, the posterior distribution is a gamma distribution.  Similarly, the distribution of $\hat\gamma_b$ will take on a skew distribution with an envelope similar to the gamma distribution, but with features reflecting the discrete values of $m_b$.  Because the maximum likelihood estimate of $\gamma_b$ will also depend on $n_b$ and $\hat{\vec\alpha}$, the  features from the discrete values of $m_b$ will be smeared.  This effect will be more noticeable for large statistical uncertainties where $\tau_b$ is small and the distribution  of $\hat\gamma_b$  will have several small peaks.  For smaller statistical uncertainties where $\tau_b$ is large the distribution of $\hat\gamma_b$ will be approximately Gaussian.
+
+
+\subsection{Data-Driven Narrative}
+
+
+The strength of the simulation narrative lies in its direct logical link from the underlying theory to the modeling of the experimental observations.  The weakness of the simulation narrative derives from the weaknesses in the simulation itself.  Data-driven approaches are more motivated when they address specific deficiencies in the simulation.  Before moving to a more abstract or general discussion of the data-driven narrative, let us first consider a few examples.
+
+
+The first example we have already considered in Sec.~\ref{S:AuxMeas} in the context of the ``on/off'' problem.  There we introduced an auxiliary measurement that counted $n_{CR}$ events in a  control region to estimate the background $\nu_B$ in the signal region.  In order to do this we needed to understand the ratio of the number of events from the background process in the control and signal regions, $\tau$.  This ratio $\tau$ either comes from some reasonable assumption or simulation.  For example, if one wanted to estimate the background due to jets faking muons $j\to\mu$ for a search selecting $\mu^+\mu^-$ , then one might use a sample of $\mu^\pm\mu^\pm$ events as a control region.  Here the motivation for using a data-driven approach  is that modeling the processes that lead to $j\to\mu$ rely heavily on the tails of fragmentation functions and detector response, which one might reasonably have some skepticism.  If one assumes that control region is expected to have negligible signal in it, that backgrounds that produce $\mu^+\mu^-$ other than the jets faking muons, and that the rate for $j\to\mu^-$ is the same\footnote{Given that the LHC collides $pp$ and not $p\bar{p}$, there is clearly a reason to worry if this assumption is valid.} as the rate for $j\to\mu^+$, then one can assume $\tau=1$.  Thus, this background estimate is as trustworthy as the assumptions that went into it.    In practice, several of these assumptions may be violated.  Another approach is to use simulation of these background processes to estimate the ratio $\tau$; a hybrid of the data-driven and simulation narratives.
+
+
+Let us now consider the search for $H\to\gamma\gamma$ shown in Fig~\ref{fig:H2photons}~\cite{ATLAS-CONF-2011-161,ATLAS:2012ad}.  The right plot of  Fig~\ref{fig:H2photons} shows the composition of the backgrounds in this search, including the continuum production of $pp\to\gamma\gamma$, the $\gamma$+jets process with a jet faking a photon $j\to\gamma$, and the multi jet process with two jets faking photons.  The continuum production of $\gamma\gamma$ has a  theoretical uncertainty that is much larger than the statistical fluctuations one would expect in the data.  Similarly, the rate of jets faking photons is sensitive to fragmentation and the detector simulation.  These uncertainties are large compared to the statistical fluctuations in the data itself.  Thus we can use the distribution in  Fig~\ref{fig:H2photons} to measure the total background rate.  Of course, the signal would also be in this distribution, so one either needs to apply a mass window around the signal and consider the region outside of the window as a sideband control sample or model the signal and background contributions to the distribution.  In the case of the   $H\to\gamma\gamma$ shown in Fig~\ref{fig:H2photons}~\cite{ATLAS-CONF-2011-161,ATLAS:2012ad} the modeling of the distribution signal and background distributions is not based on histograms from simulation, but instead a continuous function is used as an effective model.  I will discuss this effective modeling narrative below, but point out that here this is another example of a hybrid narrative.
