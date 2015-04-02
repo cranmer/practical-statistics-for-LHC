@@ -28,7 +28,7 @@ From the full set of parameters, one is typically only interested in a few: the 
 
 
 While $f(x)$ describes the probability density for the observable $x$ for a single event, we also need to describe the probability density for a dataset with many events, $\data = \{x_1,\dots,x_{n}\}$.  If we consider the events as independently drawn from the same underlying distribution, then clearly the probability density is just a product of densities for each event.  However, if we have  a prediction that the total number of events expected, call it $\nu$, then we should also include the overall Poisson probability for observing $n$ events given $\nu$ expected.  Thus, we arrive at what statisticians call a marked Poisson model,
-\begin{equation}\label{Eq:markedPoisson}
+\begin{equation}\label{eqn:markedPoisson}
 \F(\data|\nu,\alpha) = \Pois(n|\nu) \prod_{e=1}^n f(x_e|\alpha) \; ,
 \end{equation}
 where I use a bold $\F$ to distinguish it from the individual event probability density $f(x)$.  In practice, the expectation is often parametrized as well and some parameters simultaneously modify the expected rate and shape, thus we can write $\nu\rightarrow\nu(\alpha)$.  In \texttt{RooFit} both $f$ and $\F$ are implemented with a \texttt{RooAbsPdf}; where \texttt{RooAbsPdf::getVal(x)} always provides the value of $f(x)$ and depending on \texttt{RooAbsPdf::extendMode()} the value of $\nu$ is accessed via \texttt{RooAbsPdf::expectedEvents()}.
@@ -51,7 +51,7 @@ To reiterate the terminology, \emph{probability density function} refers to the 
 
 Probability models can be constructed to simultaneously describe several channels, that is several disjoint regions of the data defined by the associated selection criteria.  I will use $e$ as the index over events and $c$ as the index over channels.  Thus, the number of events in the $c^{\rm th}$ channel is $n_c$ and the value of the $e^{\rm th}$ event in the $c^{\rm th}$ channel is $x_{ce}$.  In this context, the data is a collection of smaller datasets: \mbox{$\datasim=\{\data_1, \dots, \data_{c_{\rm max}}\}=\{\{x_{c=1,e=1}\dots x_{c=1,e=n_c}\}, \dots \{x_{c=c_{\rm max},e=1}\dots x_{c=c_{\rm max},e=n_{c_{\rm max}}} \}\}$}.  In \texttt{RooFit} the index $c$ is referred to as a \texttt{RooCategory} and it is used to inside the dataset to differentiate events associated to different channels or categories. The class \texttt{RooSimultaneous} associates the dataset $\data_c$ with the corresponding marked Poisson model.  The key point here is that there are now multiple Poisson terms.  Thus we can write the combined (or simultaneous) model 
 \begin{equation}
-\label{Eq:simultaneous}
+\label{eqn:simultaneous}
 \F_{\textrm{sim}}(\datasim|\alpha) = \prod_{c\in\rm channels} \left[ \Pois(n_c|\nu(\alpha)) \prod_{e=1}^{n_c} f(x_{ce}|\alpha) \right] \; ,
 \end{equation}
 remembering that the symbol product over channels has implications for the structure of the dataset.

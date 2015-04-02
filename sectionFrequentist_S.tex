@@ -9,7 +9,7 @@ The procedures are based on the profile likelihood ratio test statistic.
 The parameter of interest is the overall signal strength factor $\mu$, which acts as a scaling to the total rate of signal events.  We often write $\mu=\sigma/\sigma_{SM}$, where $\sigma_{SM}$ is the standard model production cross-section; however, it should be clarified that the same $\mu$ factor is used for all production modes and could also be seen as a scaling on the branching ratios.  The signal strength is called so that $\mu=0$ corresponds to the background-only model and $\mu=1$ is the standard model signal.  It is convenient to separate the full list of parameters $\vec\alpha$ into the parameter of interest $\mu$ and the nuisance parameters $\vec\theta$: $\vec\alpha=(\mu,\vec\theta)$.
 
 
-For a given data set $\datasim$ and values for the global observables $\globs$ there is an associated likelihood function over $\mu$ and $\theta$ derived from combined model over all the channels including all the constraint terms in Eq.~\ref{Eq:ftot}
+For a given data set $\datasim$ and values for the global observables $\globs$ there is an associated likelihood function over $\mu$ and $\theta$ derived from combined model over all the channels including all the constraint terms in Eq.~\ref{eqn:ftot}
 \begin{equation}
 L(\mu,\vec\theta;\datasim,\globs) = \F_{\rm tot}(\datasim,\globs|\mu,\vec\theta) \;.
 \end{equation}
@@ -33,7 +33,7 @@ The conditional maximum likelihood estimate (CMLEs) $\hathatthetamu$ is the valu
 
 Given these definitions, we can construct the profile likelihood ratio
 \begin{equation}
-\label{eq:lambdatilde}  
+\label{eqn:lambdatilde}  
 {\lambda}({\mu}) =  \frac{ L(\mu, \hat{\hat{\vec{\theta}}}(\mu)) }
 {L(\hat{\mu}, \hat{\vec{\theta}}) } \;,
 \end{equation}

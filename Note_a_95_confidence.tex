@@ -1,5 +1,5 @@
 Note, a 95\% confidence interval \textit{does not} mean that there is a 95\% chance that the true value of the parameter is inside the interval -- that is a manifestly Bayesian statement.  One can produce a Bayesian \textit{credible interval} with that interpretation; however, that requires a prior probability distribution over the parameters.  Similarly, for any fixed interval $I$ one can compute the Bayesian credibility of the interval 
 \begin{equation}
-\label{eq:credible}
+\label{eqn:credible}
 P(\alpha\in I | \data) = \frac{ \int_{I}  \f(\data | \vec\alpha) \pi(\vec\alpha) d\vec\alpha }{\int \f(\data | \vec\alpha) \pi(\vec\alpha) d\vec\alpha} \;.
 \end{equation}

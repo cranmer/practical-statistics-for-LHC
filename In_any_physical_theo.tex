@@ -1,6 +1,6 @@
 In any physical theory the rate of signal events is non-negative, thus $\mu\ge 0$.  However, it is often convenient to allow $\mu<0$ (as long as the pdf $f_c(x_c | \mu,\vec\theta)\ge 0$ everywhere).  In particular, $\hat\mu<0$ indicates a deficit of events signal-like with respect to the background only and the boundary at $\mu=0$ complicates the asymptotic distributions.  Ref.~\cite{asimov} uses a  trick that is equivalent to requiring $\mu\ge 0$ while avoiding the formal complications of a boundary, which is to allow $\mu< 0$ and   impose the constraint in the test statistic itself.  In particular, one defines $\tilde \lambda(\mu)$
 \begin{equation}
-\label{eq:lambdatilde}  \tilde{\lambda}({\mu}) =  \left\{ 
+\label{eqn:lambdatilde}  \tilde{\lambda}({\mu}) =  \left\{ 
 \begin{array}{ll} \frac{ L(\mu, \hat{\hat{\vec{\theta}}}(\mu)) }
 {L(\hat{\mu}, \hat{\vec{\theta}}) } & \hat{\mu} \ge 0 , \\*[0.3 cm]
 \frac{ L(\mu, \hat{\hat{\vec{\theta}}}(\mu)) }  {L(0,
@@ -22,7 +22,7 @@ Note that $\tilde{q}_0$ is test statistic for a one-sided alternative.  Note als
 
 For limit setting the test statistic $\tilde{q}_{\mu}$ is used to differentiate the hypothesis of signal being produced at a rate $\mu$ from the alternative hypothesis of signal events being produced at a lesser rate $\mu'<\mu$:
 \begin{equation}
-\label{eq:qmutilde}  
+\label{eqn:qmutilde}  
 \tilde{q}_{\mu} =  \left\{ \!
 \! \begin{array}{ll} - 2 \ln \tilde{\lambda}(\mu)  & \hat{\mu} \le \mu
 \\*[0.2 cm] 0 & \hat{\mu} > \mu 
@@ -39,7 +39,7 @@ Note that $\tilde{q}_{\mu}$ is a test statistic for a one-sided alternative; it 
 
 The test statistic $\tilde{t}_\mu$ is used to differentiate signal being produced at a rate $\mu$ from the alternative hypothesis of signal events being produced at a lesser or greater rate $\mu' \ne\mu$.
 \begin{equation}
-\label{eq:tmu}
+\label{eqn:tmu}
 \tilde{t}_{\mu} =  - 2 \ln \tilde{\lambda}(\mu)   \; .  
 \end{equation}
 Note that $\tilde{t}_\mu$ is a test statistic for a two-sided alternative (as in the case of the Feldman-Cousins technique, though this is more general as it incorporates nuisance parameters).  Note  that if we consider the parameter of interest $\mu\ge 0$ and we the test at $\mu=0$ then there is no ``other side'' and we have $\tilde{t}_{\mu=0} = \tilde{q}_0$.  Finally, if one relaxes the constraint $\mu\ge0$ then the two-sided test statistic is written $t_\mu$ or, simply, $-2\ln\lambda(\mu)$.
@@ -87,7 +87,7 @@ p'_\mu=\frac{p_\mu}{1-p_b} \; ,
 \end{equation}
 where  $p_b$ is the $p$-value derived from the same test statistic under the background-only hypothesis
 \begin{equation}
-\label{eq:pb}
+\label{eqn:pb}
 p_b=1-\int_{\tilde q_{\mu,obs}}^\infty f(\tilde q_\mu|0,\hat{\hat{\vec{\theta}}}(\mu=0,\textrm{obs}))d\tilde q_\mu \;.
 \end{equation}
 The $CL_s$ upper-limit on $\mu$ is denoted $\mu_{up}$ and obtained by solving for $p'_{\mu_{up}}=5\%$.  
@@ -98,7 +98,7 @@ For the purposes discovery one is interested in compatibility of the data with t
 \begin{equation}
 p_0=\int_{\tilde q_{0,obs}}^\infty f(\tilde q_0|0,\hat{\hat{\vec{\theta}}}(\mu=0,\textrm{obs}))d\tilde q_0 \;.
 \end{equation}
-This $p$-value is also based on the background-only hypothesis, but the test statistic $\tilde q_0$ is suited for testing the background-only while the test statistic $\tilde{q}_\mu$ in Eq.~\ref{eq:pb} is suited for testing a hypothesis with signal.
+This $p$-value is also based on the background-only hypothesis, but the test statistic $\tilde q_0$ is suited for testing the background-only while the test statistic $\tilde{q}_\mu$ in Eq.~\ref{eqn:pb} is suited for testing a hypothesis with signal.
 
 
 It is customary to convert the background-only $p$-value into the quantile (or ``sigma'') of a unit Gaussian.  This conversion is purely conventional and makes no assumption that the test statistic $q_0$ is Gaussian distributed.  The conversion is defined as:
@@ -155,25 +155,25 @@ The asymptotic formulae below require knowing the variance of the maximum likeli
 One result of Ref.~\cite{asimov} is that $\sigma$ can be
 estimated with an artificial dataset referred to as the \textit{ Asimov} dataset.  The Asimov dataset is defined as a binned dataset, where the number of events in bin $b$ is exactly the number of events expected in bin $b$.  Note, this means that the dataset generally has non-integer number of events in each bin.  For our general model one can write
 \begin{equation}
-\label{eq:asimovData}
+\label{eqn:asimovData}
 n_{b,A} = \int_{x \in \textrm{bin}~b} \nu(\vec\alpha) f(x|\vec\alpha) dx \;
 \end{equation}
 where the subscript $A$ denotes that this is the Asimov data.  Note, that the dataset depends on the value of $\vec\alpha$ implicitly.  For an model of unbinned data, one can simply take the limit of narrow bin widths for the Asimov data.    We denote the likelihood evaluated with the Asimov data as $L_{\rm A}(\mu)$. 
-The important result is that one can calculate the expected Fisher information of Eq.~\ref{Eq:expfisher} by computing the observed Fisher information on the likelihood function based on this special Asimov dataset.  
+The important result is that one can calculate the expected Fisher information of Eq.~\ref{eqn:expfisher} by computing the observed Fisher information on the likelihood function based on this special Asimov dataset.  
 
 
 A related and convenient way to calculate the variance of $\hat\mu$ is 
 \begin{equation}
-\label{eq:sigmaofmu}
+\label{eqn:sigmaofmu}
 \sigma \sim \frac{\mu}{\sqrt {\tilde q_{\mu,A}}} \;.
 \end{equation}
-where $\tilde q_{\mu,A}$ is the to use the $\tilde q_\mu$ test statistic based on a background-only Asimov data (ie. the one with$\mu=0$ in Eq.~\ref{eq:asimovData}).  It is worth noting that higher-order corrections to the formulae below are being developed to address the case when the variance of $\hat\mu$ depends strongly on $\mu$.
+where $\tilde q_{\mu,A}$ is the to use the $\tilde q_\mu$ test statistic based on a background-only Asimov data (ie. the one with$\mu=0$ in Eq.~\ref{eqn:asimovData}).  It is worth noting that higher-order corrections to the formulae below are being developed to address the case when the variance of $\hat\mu$ depends strongly on $\mu$.
 
 
 \subsubsection{Asymptotic Formulas for $\tilde q_{0}$}
 For a sufficiently large data sample,  the pdf $f(\tilde{q}_{0} | \mu')$ is found to approach
 \begin{equation}
-\label{eq:fq0muprimewald}
+\label{eqn:fq0muprimewald}
 f(q_0 | \mu^{\prime}) = \left( 1 - 
 \Phi \left( \frac{ \mu^{\prime}}{\sigma} \right) \right) \delta(q_0)  + 
 \frac{1}{2}
@@ -184,7 +184,7 @@ f(q_0 | \mu^{\prime}) = \left( 1 -
 \end{equation}
 For the special case of $\mu^{\prime} = 0$, this reduces to
 \begin{equation}
-\label{eq:fq00}
+\label{eqn:fq00}
 f(q_0 | 0) = \frac{1}{2} \delta(q_0) + 
 \frac{1}{2} \frac{1}{\sqrt{2 \pi}} \frac{1}{\sqrt{q_0}} e^{-q_0/2} \;.
 \end{equation}
@@ -194,7 +194,7 @@ having a weight of $1/2$.  In the following we will refer to this
 mixture as a half chi-square distribution or $\half \chi^2_1$.
 
 
-From Eq.~(\ref{eq:fq0muprimewald}) the corresponding cumulative
+From Eq.~(\ref{eqn:fq0muprimewald}) the corresponding cumulative
 distribution is found to be
 \begin{equation}
 \label{cdfq0muprimewald}
@@ -211,12 +211,12 @@ F(q_0 | 0) = \Phi \Big( \sqrt{q_0} \Big)
 \end{equation}
 The $p$-value of the $\mu=0$ hypothesis is 
 \begin{equation}
-\label{eq:pval0}
+\label{eqn:pval0}
 p_0 = 1 - F(q_0 | 0) \;, 
 \end{equation}
 and therefore for the significance gives the simple formula
 \begin{equation}
-\label{eq:Z0}
+\label{eqn:Z0}
 Z = \Phi^{-1}(1 - p_0) = \sqrt{q_0} \;.
 \end{equation}
 
@@ -226,7 +226,7 @@ Z = \Phi^{-1}(1 - p_0) = \sqrt{q_0} \;.
 
 For a sufficiently large data sample,  the pdf $f(\tilde{q}_{\mu} | \mu)$ is found to approach
 \begin{eqnarray}
-\label{eq:ftildeqmmp} 
+\label{eqn:ftildeqmmp} 
 f(\tilde{q}_{\mu}|\mu^{\prime}) & = & 
 \Phi \left( \frac{\mu^{\prime} - \mu}{\sigma} \right) 
 \delta (\tilde{q}_{\mu}) \nonumber \\*[0.3 cm] 
@@ -247,7 +247,7 @@ f(\tilde{q}_{\mu}|\mu^{\prime}) & = &
 \end{eqnarray}
 The special case $\mu = \mu^{\prime}$ is therefore
 \begin{equation}
-\label{eq:ftildeqmm} 
+\label{eqn:ftildeqmm} 
 f(\tilde{q}_{\mu}|\mu) = 
 \frac{1}{2} \delta (\tilde{q}_{\mu}) +
  \: \left\{ \! \! \begin{array}{lll}
@@ -263,7 +263,7 @@ e^{- \tilde{q}_{\mu}/2}
 \end{equation}
 The corresponding cumulative distribution is
 \begin{equation}
-\label{eq:tildeqmmpcdf} 
+\label{eqn:tildeqmmpcdf} 
 F(\tilde{q}_{\mu}|\mu^{\prime}) = 
  \: \left\{ \! \! \begin{array}{lll}
 \Phi\left( \sqrt{\tilde{q}_{\mu}} - 
@@ -281,7 +281,7 @@ F(\tilde{q}_{\mu}|\mu^{\prime}) =
 
 The special case $\mu = \mu^{\prime}$ is
 \begin{equation}
-\label{eq:tildeqmmcdf} 
+\label{eqn:tildeqmmcdf} 
 F(\tilde{q}_{\mu}|\mu) = 
  \: \left\{ \! \! \begin{array}{lll}
 \Phi\Big( \sqrt{\tilde{q}_{\mu}} \Big)
@@ -300,7 +300,7 @@ given by one minus the cumulative distribution,
 
 
 \begin{equation}
-\label{eq:pvalmutilde}
+\label{eqn:pvalmutilde}
 p_{\mu} = 1 - F(\tilde{q}_{\mu} | \mu) \;.
 \end{equation}
 
@@ -312,13 +312,13 @@ namely,
 
 
 \begin{equation}
-\label{eq:muuptilde}
+\label{eqn:muuptilde}
 \mu_{\rm up} =  \hat{\mu} + \sigma \Phi^{-1}(1 - \alpha) \;.
 \end{equation}
 
 
 Note that because $\sigma$ depends in general on $\mu$,
-Eq.~(\ref{eq:muuptilde}) must be solved numerically.  
+Eq.~(\ref{eqn:muuptilde}) must be solved numerically.  
 
 
 \subsubsection{Expected $\mathrm{CL}_s$ Limit and Bands}
@@ -339,7 +339,7 @@ Note that for $N=0$ we find the median limit
       \end{equation}
 
 
-The fact that $\sigma$ (the variance of $\hat{\mu}$) defined in Eq.~\ref{eq:sigmaofmu} in general depends on $\mu$ complicates situations and can lead to some discrepancies between the correct value of the bands and those obtained with the equation above.  The bands tend to be too narrow.  A modified treatment of the bands taking into account the $\mu$ dependence of $\sigma$ is under development.
+The fact that $\sigma$ (the variance of $\hat{\mu}$) defined in Eq.~\ref{eqn:sigmaofmu} in general depends on $\mu$ complicates situations and can lead to some discrepancies between the correct value of the bands and those obtained with the equation above.  The bands tend to be too narrow.  A modified treatment of the bands taking into account the $\mu$ dependence of $\sigma$ is under development.
 
 
 \subsection{Importance Sampling}
