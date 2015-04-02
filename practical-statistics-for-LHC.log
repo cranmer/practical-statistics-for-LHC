@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  7 MAR 2015 10:24
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  25 MAR 2015 11:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -610,7 +610,7 @@ LaTeX Warning: File `CLs.eps' not found on input line 308.
 
 Package epstopdf Info: Source file: <CLs.eps>
 (epstopdf)             Output file: <./figures/CLs-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-03-07 09:03:52
+(epstopdf)                    date: 2015-03-15 06:34:40
 (epstopdf)                    size: 22755 bytes
 (epstopdf)             Command: <repstopdf --outfile=./figures/CLs-eps-converte
 d-to.pdf CLs.eps>
@@ -719,22 +719,16 @@ File: ./figures/H_2ph.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./figures/H_2ph.pdf used on input line 708.
 (pdftex.def)             Requested size: 182.09485pt x 165.07655pt.
 Package epstopdf Info: Source file: <./figures/H_2ph_contributions.eps>
-(epstopdf)                    date: 2015-03-07 10:12:49
+(epstopdf)                    date: 2015-03-15 06:34:40
 (epstopdf)                    size: 47506 bytes
 (epstopdf)             Output file: <./figures/H_2ph_contributions-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2015-03-07 09:03:52
+(epstopdf)                    date: 2015-03-15 06:34:40
 (epstopdf)                    size: 24258 bytes
 (epstopdf)             Command: <repstopdf --outfile=./figures/H_2ph_contributi
 ons-eps-converted-to.pdf ./figures/H_2ph_contributions.eps>
 (epstopdf)             \includegraphics on input line 709.
-runsystem(repstopdf --outfile=./figures/H_2ph_contributions-eps-converted-to.pd
-f ./figures/H_2ph_contributions.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <./figures/H_2ph_contributions-eps-converte
-d-to.pdf>
-(epstopdf)                    date: 2015-03-07 09:03:52
-(epstopdf)                    size: 24258 bytes.
+Package epstopdf Info: Output file is already uptodate.
 
 <./figures/H_2ph_contributions-eps-converted-to.pdf, id=672, 569.12625pt x 410.
 53375pt>
@@ -823,7 +817,7 @@ LaTeX Warning: File `ImpSampl_r0045_126_TSDistr.eps' not found on input line 12
 Package epstopdf Info: Source file: <ImpSampl_r0045_126_TSDistr.eps>
 (epstopdf)             Output file: <./figures/ImpSampl_r0045_126_TSDistr-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2015-03-07 09:03:52
+(epstopdf)                    date: 2015-03-15 06:34:40
 (epstopdf)                    size: 10968 bytes
 (epstopdf)             Command: <repstopdf --outfile=./figures/ImpSampl_r0045_1
 26_TSDistr-eps-converted-to.pdf ImpSampl_r0045_126_TSDistr.eps>
@@ -846,7 +840,7 @@ LaTeX Warning: File `limitsGauss.eps' not found on input line 1241.
 Package epstopdf Info: Source file: <limitsGauss.eps>
 (epstopdf)             Output file: <./figures/limitsGauss-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2015-03-07 09:03:52
+(epstopdf)                    date: 2015-03-15 06:34:40
 (epstopdf)                    size: 8405 bytes
 (epstopdf)             Command: <repstopdf --outfile=./figures/limitsGauss-eps-
 converted-to.pdf limitsGauss.eps>
@@ -866,7 +860,7 @@ LaTeX Warning: File `coverageGauss.eps' not found on input line 1242.
 Package epstopdf Info: Source file: <coverageGauss.eps>
 (epstopdf)             Output file: <./figures/coverageGauss-eps-converted-to.p
 df>
-(epstopdf)                    date: 2015-03-07 09:03:52
+(epstopdf)                    date: 2015-03-15 06:34:40
 (epstopdf)                    size: 7717 bytes
 (epstopdf)             Command: <repstopdf --outfile=./figures/coverageGauss-ep
 s-converted-to.pdf coverageGauss.eps>
@@ -951,7 +945,7 @@ ype1/public/cm-super/sftt1095.pfb></usr/local/texlive/2013/texmf-dist/fonts/typ
 e1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/tim
 es/utmbi8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on practical-statistics-for-LHC.pdf (45 pages, 1783342 bytes).
+Output written on practical-statistics-for-LHC.pdf (45 pages, 1783223 bytes).
 PDF statistics:
  1041 PDF objects out of 1200 (max. 8388607)
  707 compressed objects within 8 object streams

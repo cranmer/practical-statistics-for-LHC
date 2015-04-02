@@ -130,7 +130,7 @@ The \emph{likelihood function} $L(\alpha)$ is numerically equivalent to $f(x|\al
 \]
 %To reiterate, the term model is used to describe the full structure of $f(x|\alpha)$; the term pdf refers to the probability density as a function of $x$ given a fixed value of $\alpha$; and the term likelihood function is used to describe how the probability density of a fixed $x$ depends on $\alpha$.
 %
-It is common to work with the log-likelihood (or negative log-likelihood) function.  In the case of a marked Poisson, we have what is commonly referred to as an extended maximum likelihood~\cite{Barlow1990496}
+It is common to work with the log-likelihood (or negative log-likelihood) function.  In the case of a marked Poisson, we have what is commonly referred to as an extended  likelihood~\cite{Barlow1990496}
 \begin{eqnarray}\nonumber
 -\ln L( \alpha) &=& \underbrace{\nu(\alpha) - n \ln \nu(\alpha)}_{\rm extended~term} - \sum_{e=1}^n \ln f(x_e)   + \underbrace{~\ln n! ~}_{\mathrm{constant}}\; .
 \end{eqnarray}
@@ -1409,10 +1409,11 @@ Another topic for the future.  The basic aim of unfolding is to try to correct d
 
 \section{Conclusions}
 
-It was a pleasure to lecture at the Cheile Gradistei school on High-Energy Physics and present the recent developments and practice in statistics for particle physics.  Quite a bit of progress has been made in the last few years in terms of statistical methodology, in particular the formalization of a fully frequentist approach to incorporating systematics, a deeper understanding of the look-elsewhere effect, the development of asymptotic approximations of the distributions important for particle physics, and in roads to Bayesian reference analysis. Furthermore, most of these developments are general purpose and can be applied across diverse models.   While those developments are interesting, the most important area for most physicists to devote their attention in terms of statistics is to improve the modeling of the data for his or her individual analysis.  With that perspective
+It was a pleasure to lecture at the 2011 ESHEP school in Cheile Gradistei  and the 2013 CLASHEP school in Peru.  Quite a bit of progress has been made in the last few years in terms of statistical methodology, in particular the formalization of a fully frequentist approach to incorporating systematics, a deeper understanding of the look-elsewhere effect, the development of asymptotic approximations of the distributions important for particle physics, and in roads to Bayesian reference analysis. Furthermore, most of these developments are general purpose and can be applied across diverse models.   While those developments are interesting, the most important area for most physicists to devote their attention in terms of statistics is to improve the modeling of the data for his or her individual analysis.  
 
-\bibliographystyle{unsrt}
-\bibliography{practical-statistics-for-LHC}
+\input{practical-statistics-for-LHC.bbl}
+%\bibliographystyle{unsrt}
+%\bibliography{practical-statistics-for-LHC}
 
 
 %
