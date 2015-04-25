@@ -33,4 +33,4 @@ figures/JeffreysPriorGaussian/JeffreysPriorGaussian.png
 figures/JeffreysPriorPoisson/JeffreysPriorPoisson.png
 Unfortunately_Jeffre.tex
 Unfolding.tex
-sectionConclusions__.tex
+Conclusions.tex
