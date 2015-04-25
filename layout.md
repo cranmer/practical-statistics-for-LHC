@@ -21,7 +21,7 @@ Incorporating MC Statistical uncertainty.tex
 figures/H_2ph/authorea_h_yy_fig.png
 an example.tex
 figures/ABCD/authorea_ABCD.png
-subsectionEffective_.tex
+Effective Model.tex
 sectionFrequentist_S.tex
 figures/PLR_x/authorea_profile_likelihood_plots.png
 cont'd1.tex
