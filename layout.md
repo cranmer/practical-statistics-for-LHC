@@ -27,7 +27,7 @@ figures/PLR_x/authorea_profile_likelihood_plots.png
 In_any_physical_theo.tex
 figures/ImpSampl_r0045_126_TSDistr/ImpSampl_r0045_126_TSDistr-eps-converted-to.png
 subsectionLookelsewh.tex
-figures/limitsGauss/default_figure.png
+figures/limitsGauss/authorea_cls_pcl.png
 sectionBayesian_Proc.tex
 figures/JeffreysPriorGaussian/default_figure.png
 figures/JeffreysPriorPoisson/default_figure.png
