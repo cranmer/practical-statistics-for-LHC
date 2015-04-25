@@ -23,7 +23,7 @@ The_final_example_to.tex
 figures/ABCD/authorea_ABCD.png
 subsectionEffective_.tex
 sectionFrequentist_S.tex
-figures/PLR_x/default_figure.png
+figures/PLR_x/authorea_profile_likelihood_plots.png
 In_any_physical_theo.tex
 figures/ImpSampl_r0045_126_TSDistr/default_figure.png
 subsectionLookelsewh.tex
