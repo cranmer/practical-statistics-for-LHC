@@ -22,7 +22,7 @@ figures/H_2ph/authorea_h_yy_fig.png
 an example.tex
 figures/ABCD/authorea_ABCD.png
 Effective Model.tex
-sectionFrequentist_S.tex
+Frequentist Procedures.tex
 figures/PLR_x/authorea_profile_likelihood_plots.png
 cont'd1.tex
 figures/ImpSampl_r0045_126_TSDistr/ImpSampl_r0045_126_TSDistr-eps-converted-to.png
