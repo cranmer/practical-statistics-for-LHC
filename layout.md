@@ -25,7 +25,7 @@ subsectionEffective_.tex
 sectionFrequentist_S.tex
 figures/PLR_x/authorea_profile_likelihood_plots.png
 In_any_physical_theo.tex
-figures/ImpSampl_r0045_126_TSDistr/default_figure.png
+figures/ImpSampl_r0045_126_TSDistr/ImpSampl_r0045_126_TSDistr-eps-converted-to.png
 subsectionLookelsewh.tex
 figures/limitsGauss/default_figure.png
 sectionBayesian_Proc.tex
