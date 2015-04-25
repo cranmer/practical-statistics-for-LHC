@@ -26,7 +26,7 @@ sectionFrequentist_S.tex
 figures/PLR_x/authorea_profile_likelihood_plots.png
 cont'd1.tex
 figures/ImpSampl_r0045_126_TSDistr/ImpSampl_r0045_126_TSDistr-eps-converted-to.png
-subsectionLookelsewh.tex
+Look elsewhere effect.tex
 figures/limitsGauss/authorea_cls_pcl.png
 sectionBayesian_Proc.tex
 figures/JeffreysPriorGaussian/JeffreysPriorGaussian.png
