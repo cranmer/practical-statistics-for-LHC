@@ -18,7 +18,7 @@ figures/interpOption_8_12/interp_plots_abcd.png
 Consistent Bayesian & Frequentist modeling.tex
 figures/lognormal/lognormal.png
 Incorporating MC Statistical uncertainty.tex
-figures/H_2ph/default_figure.png
+figures/H_2ph/authorea_h_yy_fig.png
 The_final_example_to.tex
 figures/ABCD/default_figure.png
 subsectionEffective_.tex
