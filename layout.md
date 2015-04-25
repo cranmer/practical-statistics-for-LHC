@@ -19,7 +19,7 @@ Consistent Bayesian & Frequentist modeling.tex
 figures/lognormal/lognormal.png
 Incorporating MC Statistical uncertainty.tex
 figures/H_2ph/authorea_h_yy_fig.png
-The_final_example_to.tex
+an example.tex
 figures/ABCD/authorea_ABCD.png
 subsectionEffective_.tex
 sectionFrequentist_S.tex
