@@ -28,7 +28,7 @@ cont'd1.tex
 figures/ImpSampl_r0045_126_TSDistr/ImpSampl_r0045_126_TSDistr-eps-converted-to.png
 Look elsewhere effect.tex
 figures/limitsGauss/authorea_cls_pcl.png
-sectionBayesian_Proc.tex
+Bayesian Procedures.tex
 figures/JeffreysPriorGaussian/JeffreysPriorGaussian.png
 figures/JeffreysPriorPoisson/JeffreysPriorPoisson.png
 Unfortunately_Jeffre.tex
