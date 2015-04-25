@@ -10,7 +10,7 @@ figures/s11_mt_mw_contours/s11_mt_mw_contours.png
 figures/CLs/CLs-eps-converted-to.png
 In_a_frequentist_set.tex
 figures/NC_schematic_obs/NC_schematic_obs.png
-FigurereffigNC_schem.tex
+Neyman Construction.tex
 figures/fc_to_NC_twosided/fc_to_NC_twosided.png
 Note_a_95_confidence.tex
 sectionModeling_and_.tex
