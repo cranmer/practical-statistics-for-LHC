@@ -12,7 +12,7 @@ In_a_frequentist_set.tex
 figures/NC_schematic_obs/NC_schematic_obs.png
 Neyman Construction.tex
 figures/fc_to_NC_twosided/fc_to_NC_twosided.png
-Note_a_95_confidence.tex
+cont'd.tex
 Scientific Narrative.tex
 figures/interpOption_8_12/interp_plots_abcd.png
 Consistent Bayesian & Frequentist modeling.tex
