@@ -9,7 +9,7 @@ How_does_this_genera.tex
 figures/s11_mt_mw_contours/s11_mt_mw_contours.png
 figures/CLs/CLs-eps-converted-to.png
 In_a_frequentist_set.tex
-figures/NC_schematic_obs/default_figure.png
+figures/NC_schematic_obs/NC_schematic_obs.png
 FigurereffigNC_schem.tex
 figures/fc_to_NC_twosided/default_figure.png
 Note_a_95_confidence.tex
