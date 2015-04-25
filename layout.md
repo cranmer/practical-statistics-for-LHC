@@ -31,6 +31,6 @@ figures/limitsGauss/authorea_cls_pcl.png
 Bayesian Procedures.tex
 figures/JeffreysPriorGaussian/JeffreysPriorGaussian.png
 figures/JeffreysPriorPoisson/JeffreysPriorPoisson.png
-Unfortunately_Jeffre.tex
+cont'd2.tex
 Unfolding.tex
 Conclusions.tex
