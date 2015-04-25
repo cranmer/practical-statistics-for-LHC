@@ -11,7 +11,7 @@ figures/CLs/CLs-eps-converted-to.png
 In_a_frequentist_set.tex
 figures/NC_schematic_obs/NC_schematic_obs.png
 FigurereffigNC_schem.tex
-figures/fc_to_NC_twosided/default_figure.png
+figures/fc_to_NC_twosided/fc_to_NC_twosided.png
 Note_a_95_confidence.tex
 sectionModeling_and_.tex
 figures/interpOption_8_12/default_figure.png
