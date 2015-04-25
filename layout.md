@@ -6,6 +6,7 @@ Auxiliary measurements.tex
 Physics questions formulated in statistical language.tex
 figures/NeymanPearsonLemma/NeymanPearsonLemma.png
 How_does_this_genera.tex
+figures/s11_mt_mw_contours/s11_mt_mw_contours.png
 figures/CLs/CLs-eps-converted-to.png
 In_a_frequentist_set.tex
 figures/NC_schematic_obs/default_figure.png
