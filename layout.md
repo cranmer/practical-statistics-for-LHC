@@ -32,5 +32,5 @@ Bayesian Procedures.tex
 figures/JeffreysPriorGaussian/JeffreysPriorGaussian.png
 figures/JeffreysPriorPoisson/JeffreysPriorPoisson.png
 Unfortunately_Jeffre.tex
-sectionUnfolding_Ano.tex
+Unfolding.tex
 sectionConclusions__.tex
