@@ -20,7 +20,7 @@ figures/lognormal/lognormal.png
 Incorporating MC Statistical uncertainty.tex
 figures/H_2ph/authorea_h_yy_fig.png
 The_final_example_to.tex
-figures/ABCD/default_figure.png
+figures/ABCD/authorea_ABCD.png
 subsectionEffective_.tex
 sectionFrequentist_S.tex
 figures/PLR_x/default_figure.png
