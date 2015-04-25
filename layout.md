@@ -30,7 +30,7 @@ subsectionLookelsewh.tex
 figures/limitsGauss/authorea_cls_pcl.png
 sectionBayesian_Proc.tex
 figures/JeffreysPriorGaussian/JeffreysPriorGaussian.png
-figures/JeffreysPriorPoisson/default_figure.png
+figures/JeffreysPriorPoisson/JeffreysPriorPoisson.png
 Unfortunately_Jeffre.tex
 sectionUnfolding_Ano.tex
 sectionConclusions__.tex
