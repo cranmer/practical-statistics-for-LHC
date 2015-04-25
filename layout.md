@@ -29,7 +29,7 @@ figures/ImpSampl_r0045_126_TSDistr/ImpSampl_r0045_126_TSDistr-eps-converted-to.p
 subsectionLookelsewh.tex
 figures/limitsGauss/authorea_cls_pcl.png
 sectionBayesian_Proc.tex
-figures/JeffreysPriorGaussian/default_figure.png
+figures/JeffreysPriorGaussian/JeffreysPriorGaussian.png
 figures/JeffreysPriorPoisson/default_figure.png
 Unfortunately_Jeffre.tex
 sectionUnfolding_Ano.tex
