@@ -24,7 +24,7 @@ figures/ABCD/authorea_ABCD.png
 subsectionEffective_.tex
 sectionFrequentist_S.tex
 figures/PLR_x/authorea_profile_likelihood_plots.png
-In_any_physical_theo.tex
+cont'd1.tex
 figures/ImpSampl_r0045_126_TSDistr/ImpSampl_r0045_126_TSDistr-eps-converted-to.png
 subsectionLookelsewh.tex
 figures/limitsGauss/authorea_cls_pcl.png
