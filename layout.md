@@ -33,4 +33,5 @@ figures/JeffreysPriorGaussian/JeffreysPriorGaussian.png
 figures/JeffreysPriorPoisson/JeffreysPriorPoisson.png
 cont'd2.tex
 Unfolding.tex
+section_IPython_notebook_test__.tex
 Conclusions.tex
