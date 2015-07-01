@@ -34,4 +34,5 @@ figures/JeffreysPriorPoisson/JeffreysPriorPoisson.png
 cont'd2.tex
 Unfolding.tex
 section_IPython_notebook_test__.tex
+figures/james-stein/james-stein.png
 Conclusions.tex
